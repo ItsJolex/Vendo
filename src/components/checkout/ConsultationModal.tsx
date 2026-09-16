@@ -15,7 +15,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `¡Hola VÉNDO! 👋\nMi nombre es *${name}* y tengo el negocio *${business || 'en etapa de lanzamiento'}*.\nObjetivo: *${need}*.\n\n¿Podemos coordinar una llamada o mensaje de asesoría para ver qué solución se ajusta a mi presupuesto?`;
+    const text = `¡Hola equipo VÉNDO! 🚀\nMi nombre es *${name}* (Marca/Proyecto: *${business || 'Nuevo Lanzamiento'}*).\nObjetivo comercial: *${need}*.\n\nQuiero revisar requerimientos técnicos y disponibilidad de cupo para el sprint de esta semana.`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     onClose();
   };
@@ -28,8 +28,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           <div className="flex items-center justify-between pb-3 border-b border-black mb-4">
             <div className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-black" />
-              <h3 className="text-xs font-black uppercase tracking-widest text-black">
-                ASESORÍA DIRECTA // WHATSAPP
+              <h3 className="text-xs font-black uppercase tracking-widest text-black font-mono">
+                BRIEF TÉCNICO // WHATSAPP DIRECTO
               </h3>
             </div>
             <button onClick={onClose} className="p-1 hover:bg-black hover:text-white">
@@ -38,7 +38,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           </div>
 
           <p className="text-xs text-neutral-600 mb-4 font-medium leading-relaxed">
-            Te respondemos en menos de 15 minutos para orientarte sobre la mejor arquitectura web para tu modelo de negocio.
+            Canal técnico directo. Evaluamos el alcance de tu proyecto, stack recomendado y fecha de entrega estimada en minutos.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-3">

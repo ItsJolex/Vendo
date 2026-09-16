@@ -43,9 +43,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
           <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={onOpenConsult}
-              className="hidden sm:inline-flex text-xs font-bold uppercase tracking-wider px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors"
+              className="hidden sm:inline-flex text-xs font-bold uppercase tracking-wider px-3 py-1.5 border border-black hover:bg-black hover:text-white transition-colors font-mono"
             >
-              [ + ASESORÍA ]
+              [ + INICIAR BRIEF ]
             </button>
 
             <button
@@ -124,10 +124,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
                   setLeftMenuOpen(false);
                   onOpenConsult();
                 }}
-                className="w-full py-3 bg-black text-white text-xs font-extrabold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-neutral-800"
+                className="w-full py-3 bg-black text-white text-xs font-extrabold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-neutral-800 font-mono"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Hablar con un Ingeniero</span>
+                <span>INICIAR BRIEF TÉCNICO</span>
               </button>
               <p className="text-[10px] font-mono text-neutral-500 text-center uppercase">
                 ESTRUCTURA DE ALTA CONVERSIÓN

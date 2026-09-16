@@ -6,24 +6,24 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: '¿QUÉ INFORMACIÓN NECESITO ENVIARLES PARA EMPEZAR?',
-      a: 'Solo lo esencial: logotipo (si lo tienes), tus servicios o catálogo de productos, y datos de contacto/WhatsApp. Si no tienes textos redactados o fotos, nuestro equipo selecciona imágenes profesionales de archivo y redacta los copys de venta con IA y técnicas de persuasión.',
+      q: '¿QUÉ MATERIAL EXACTO NECESITAN DE MI PARTE PARA EMPEZAR?',
+      a: 'Lo indispensable: logotipo (si lo tienes), la lista de tus servicios o productos con precios, y a dónde quieres recibir a tus clientes (teléfono o link de pago). Si no tienes fotos o textos terminados, nosotros redactamos los copys de venta y seleccionamos fotografía editorial de alta calidad sin costo adicional.',
+    },
+    {
+      q: '¿POR QUÉ DICEN QUE EL HOSTING ES DE $0 USD AL MES?',
+      a: 'Desarrollamos sobre arquitectura moderna Serverless (Vercel / Cloudflare Edge). A diferencia de WordPress, que requiere servidores dedicados lentos de $20 a $50/mes para no caerse, el código estático compilado no consume cómputo continuo y el tier gratuito de estas redes mundiales cubre hasta 100.000 visitas al mes sin pagar un solo centavo.',
     },
     {
       q: '¿CUÁNTO TIEMPO TARDA REALMENTE LA ENTREGA?',
-      a: 'El estándar de entrega es de 48 a 72 horas para Landing Pages y de 5 a 7 días hábiles para tiendas online completas y webs corporativas, a partir de la recepción de tu material inicial.',
+      a: 'Para Landing Pages CRO el tiempo de entrega en entorno privado de staging es de 48 a 72 horas hábiles. Para tiendas online completas y webs corporativas, el sprint toma de 5 a 7 días hábiles tras recibir tus productos o contenidos base.',
     },
     {
-      q: '¿PUEDO MODIFICAR TEXTOS, PRECIOS Y FOTOS YO MISMO?',
-      a: 'Sí, 100%. Te entregamos la web conectada a un panel autogestionable simple, junto con un video explicativo paso a paso de 5 minutos donde te enseñamos a editar cualquier texto o producto.',
+      q: '¿CÓMO FUNCIONA EL COBRO Y LAS PASARELAS DE PAGO?',
+      a: 'No cobramos ninguna comisión sobre tus ventas. Te configuramos tu propia pasarela (Stripe o Mercado Pago) directamente enlazada a tu cuenta de banco para que el dinero de tus clientes ingrese de forma automática e inmediata.',
     },
     {
-      q: '¿INCLUYE DOMINIO, HOSTING Y CERTIFICADO DE SEGURIDAD?',
-      a: 'Puedes agregar el paquete de Dominio .com + Hosting SSL de alta velocidad por solo $49/año en tu pedido, o si ya tienes tu propio hosting o dominio en GoDaddy, Namecheap o Hostinger, lo conectamos gratis.',
-    },
-    {
-      q: '¿QUÉ SUCEDE SI NO ME GUSTA LA PRIMERA VERSIÓN?',
-      a: 'Contamos con garantía blindada VÉNDO: realizamos todas las revisiones y ajustes necesarios hasta que la web cumpla exactamente tus expectativas antes de publicarla oficialmente.',
+      q: '¿QUÉ SUCEDE SI NECESITO CAMBIOS ANTES DEL LANZAMIENTO?',
+      a: 'Protocolo de Revisión Quirúrgica: antes de conectar tu dominio oficial, revisamos la página contigo en un enlace privado. Realizamos los ajustes de diseño, textos y fotos que solicites hasta que el resultado cumpla al 100% el estándar acordado.',
     },
   ];
 
@@ -34,7 +34,7 @@ export const FaqSection: React.FC = () => {
         {/* Cabecera */}
         <div className="mb-10 text-left">
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-500 block mb-1">
-            [ RESOLUCIÓN DE DUDAS ]
+            [ RESOLUCIÓN DE DUDAS COMERCIALES Y TÉCNICAS ]
           </span>
           <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-black">
             PREGUNTAS FRECUENTES // FAQ
@@ -54,7 +54,7 @@ export const FaqSection: React.FC = () => {
                   <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black">
                     {faq.q}
                   </span>
-                  <span className="w-6 h-6 border border-black flex items-center justify-center flex-shrink-0 text-black">
+                  <span className="w-6 h-6 border border-black flex items-center justify-center flex-shrink-0 text-black font-mono">
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </span>
                 </button>

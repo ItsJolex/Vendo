@@ -28,15 +28,15 @@ export const CartDrawer: React.FC = () => {
     const itemsSummary = items
       .map(
         (it) =>
-          `• ${it.quantity}x *${it.title}* [${it.variant}] — ${formatCurrency(
+          `▪ *${it.quantity}x ${it.title}* [${it.variant}] — ${formatCurrency(
             it.price * it.quantity
           )}`
       )
       .join('\n');
 
-    const message = `¡Hola VÉNDO! 🚀\nQuiero confirmar el pedido de mi orden web:\n\n${itemsSummary}\n\n*TOTAL A PAGAR:* ${formatCurrency(
+    const message = `¡Hola VÉNDO! 🚀\nConfirmo el pedido de mi infraestructura web:\n\n${itemsSummary}\n\n*TOTAL ORDEN:* ${formatCurrency(
       totalAmount
-    )}\n\n¿Cuáles son los pasos para comenzar con el desarrollo?`;
+    )}\n\n¿Cuáles son los requerimientos técnicos para iniciar el sprint de 72h?`;
 
     window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
   };
@@ -69,21 +69,25 @@ export const CartDrawer: React.FC = () => {
           </button>
         </div>
 
-        {/* Barra de Beneficio Gratuito (Threshold) */}
-        <div className="bg-neutral-100 p-3 border-b border-neutral-300">
+        {/* Barra de Beneficio Gratuito Segmentada (Estilo Display Digital) */}
+        <div className="bg-neutral-100 p-3 border-b border-black">
           <div className="flex justify-between text-[10px] font-black uppercase tracking-wider text-black mb-1.5 font-mono">
             {remaining > 0 ? (
-              <span>TE FALTAN {formatCurrency(remaining)} PARA DOMINIO .COM GRATIS</span>
+              <span>FALTAN {formatCurrency(remaining)} PARA DOMINIO .COM + SSL GRATIS</span>
             ) : (
-              <span className="text-emerald-700">¡DOMINIO Y ASESORÍA 100% BONIFICADOS!</span>
+              <span className="text-emerald-700 font-bold">✓ DOMINIO .COM + SSL 100% BONIFICADOS</span>
             )}
-            <span>{progressPercent}%</span>
+            <span>[{progressPercent}%]</span>
           </div>
-          <div className="w-full h-2 bg-neutral-300 overflow-hidden">
-            <div
-              className="h-full bg-black transition-all duration-300"
-              style={{ width: `${progressPercent}%` }}
-            />
+          <div className="grid grid-cols-10 gap-1 h-2">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-full border border-black ${
+                  (i + 1) * 10 <= progressPercent ? 'bg-black' : 'bg-white'
+                }`}
+              />
+            ))}
           </div>
         </div>
 

@@ -5,16 +5,19 @@ export interface Addon {
   name: string;
   price: number;
   description: string;
+  tag?: string;
 }
 
 export interface WebSolution {
   id: string;
+  sku: string;
   name: string;
   tagline: string;
   category: Exclude<CategoryId, 'todos'>;
   price: number;
   originalPrice: number;
   deliveryDays: string;
+  specMetric: string;
   popular?: boolean;
   spotsLeft?: number;
   rating: number;

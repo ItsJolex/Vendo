@@ -125,6 +125,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
       {/* Información de la Solución */}
       <div className="p-4 flex flex-col flex-1 justify-between text-left">
         <div>
+          {/* Micro-header con SKU y Métrica */}
+          <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-neutral-100 text-[9px] font-mono text-neutral-400">
+            <span className="font-bold text-black">{solution.sku}</span>
+            <span className="text-neutral-600 font-bold">{solution.specMetric}</span>
+          </div>
+
           {/* Título y Tagline */}
           <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black line-clamp-1 mb-1">
             {solution.name}

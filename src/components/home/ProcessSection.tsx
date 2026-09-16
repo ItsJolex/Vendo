@@ -5,18 +5,18 @@ export const ProcessSection: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'SELECCIÓN DE SOLUCIÓN',
-      desc: 'Eliges el paquete del catálogo y los add-ons específicos que requiere tu modelo de negocio.',
+      title: 'SELECCIÓN DE ARQUITECTURA',
+      desc: 'Seleccionas el paquete del catálogo y los módulos específicos que requiere tu modelo de venta directa o captación.',
     },
     {
       num: '02',
-      title: 'PROGRAMACIÓN EN 72H',
-      desc: 'Ensamblamos el diseño, redactamos los copys de venta y conectamos tus canales de pago.',
+      title: 'SPRINT DE DESARROLLO 72H',
+      desc: 'Programación en rama de staging, redacción de textos transaccionales y configuración de pasarelas. Monitoreas el avance en un enlace privado.',
     },
     {
       num: '03',
-      title: 'DESPLIEGUE Y VENTAS',
-      desc: 'Conectamos tu dominio oficial con certificado SSL y tu página queda activa generando clientes.',
+      title: 'DESPLIEGUE EN PRODUCCIÓN',
+      desc: 'Conexión de dominio oficial con SSL Wildcard, auditoría final de Core Web Vitals (<0.8s) y entrega de accesos completos.',
     },
   ];
 
@@ -64,18 +64,18 @@ export const ProcessSection: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-white flex-shrink-0" />
             <div>
               <h4 className="text-xs sm:text-sm font-black uppercase tracking-widest">
-                GARANTÍA DE AJUSTES ILIMITADOS VÉNDO
+                PROTOCOLO DE REVISIÓN QUIRÚRGICA VÉNDO
               </h4>
               <p className="text-[11px] text-neutral-300 font-medium">
-                No lanzamos hasta que estés 100% satisfecho con el resultado y la velocidad.
+                Rondas de ajustes en el entorno de pruebas antes del despliegue final. Si el sitio no carga en &lt; 0.8s, optimizamos el código sin costo adicional.
               </p>
             </div>
           </div>
           <a
-            href="https://wa.me/?text=Hola%20VÉNDO,%20quiero%20conocer%20más%20sobre%20el%20proceso%20de%20entrega"
+            href="https://wa.me/?text=Hola%20VÉNDO,%20quiero%20conocer%20más%20sobre%20el%20protocolo%20de%20entrega%20en%2072h"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-white text-black text-xs font-black uppercase tracking-wider border border-white hover:bg-neutral-200 transition-colors flex-shrink-0"
+            className="px-4 py-2 bg-white text-black text-xs font-black uppercase tracking-wider border border-white hover:bg-neutral-200 transition-colors flex-shrink-0 font-mono"
           >
             [ HABLAR CON EL EQUIPO ]
           </a>

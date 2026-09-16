@@ -38,7 +38,7 @@ export const SolutionDetailsModal: React.FC<SolutionDetailsModalProps> = ({
           {/* Header */}
           <div className="flex items-center justify-between pb-4 border-b border-black mb-6">
             <span className="text-xs font-mono font-black uppercase tracking-widest text-black">
-              ESPECIFICACIONES // {solution.name}
+              ESPECIFICACIONES // {solution.sku} — {solution.name}
             </span>
             <button
               onClick={onClose}
@@ -60,9 +60,14 @@ export const SolutionDetailsModal: React.FC<SolutionDetailsModalProps> = ({
 
             <div className="flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase bg-black text-white px-2 py-0.5 inline-block mb-2">
-                  ENTREGA: {solution.deliveryDays}
-                </span>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-[10px] font-mono font-bold uppercase bg-black text-white px-2 py-0.5 inline-block">
+                    ENTREGA: {solution.deliveryDays}
+                  </span>
+                  <span className="text-[10px] font-mono font-bold uppercase border border-black px-2 py-0.5 inline-block text-neutral-800">
+                    {solution.specMetric}
+                  </span>
+                </div>
                 <h3 className="text-xl font-black font-display uppercase tracking-wider text-black mb-2">
                   {solution.name}
                 </h3>
