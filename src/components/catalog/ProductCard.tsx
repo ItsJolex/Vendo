@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { WebSolution, formatCurrency } from '../../types/solution';
 import { useCart } from '../../context/CartContext';
-import { Plus, Eye } from 'lucide-react';
+import { Plus, Eye, Check } from 'lucide-react';
 
 interface ProductCardProps {
   solution: WebSolution;
@@ -11,6 +11,7 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView }) => {
   const { addItem } = useCart();
   const [mobileSelectOpen, setMobileSelectOpen] = useState(false);
+  const [justAdded, setJustAdded] = useState(false);
 
   const variants = [
     { label: 'BÁSICO', priceDelta: 0 },
@@ -27,6 +28,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
       image: solution.images.preview,
     });
     setMobileSelectOpen(false);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1200);
   };
 
   return (
@@ -35,6 +38,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
       {/* Contenedor de Imagen 3:4 con Dual Flip */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 border-b border-neutral-200">
         
+        {/* Esquinas con cruces industriales blueprint (+) */}
+        <span className="absolute top-1 left-1.5 text-[10px] font-mono text-black/40 select-none z-10 pointer-events-none">+</span>
+        <span className="absolute top-1 right-1.5 text-[10px] font-mono text-black/40 select-none z-10 pointer-events-none">+</span>
+
         {/* Badges de estilo YoungLA / Brutalista */}
         <div className="absolute top-2 left-2 z-20 flex flex-col gap-1 items-start">
           {solution.popular && (
@@ -73,7 +80,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
         {/* Quick Variant Selector Overlay (Desktop: Emerge en Hover) */}
         <div className="absolute inset-x-0 bottom-0 z-20 hidden lg:flex translate-y-full items-center justify-center gap-1 bg-white/95 p-2.5 backdrop-blur-sm border-t border-black transition-transform duration-200 ease-out group-hover:translate-y-0">
           <span className="text-[10px] font-black uppercase tracking-wider text-neutral-600 mr-1 font-mono">
-            PLAN:
+            NIVEL:
           </span>
           {variants.map((v) => (
             <button
@@ -103,17 +110,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
         {/* Desplegable móvil de variantes */}
         {mobileSelectOpen && (
           <div className="lg:hidden absolute inset-x-0 bottom-0 z-30 bg-white border-t border-black p-2 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2">
-            <span className="text-[10px] font-black uppercase tracking-widest text-center text-neutral-500">
-              SELECCIONA NIVEL:
+            <span className="text-[10px] font-black uppercase tracking-widest text-center text-neutral-500 font-mono">
+              SELECCIONA NIVEL DE SPRINT:
             </span>
             <div className="grid grid-cols-3 gap-1">
               {variants.map((v) => (
                 <button
                   key={v.label}
                   onClick={() => handleAdd(v.label, v.priceDelta)}
-                  className="py-1.5 px-1 border border-black text-[9px] font-black uppercase bg-white text-black active:bg-black active:text-white"
+                  className="py-2 px-1 border border-black text-[9px] font-black uppercase bg-white text-black active:bg-black active:text-white flex flex-col items-center"
                 >
-                  {v.label}
+                  <span>{v.label}</span>
+                  <span className="font-mono text-neutral-500">
+                    {formatCurrency(solution.price + v.priceDelta)}
+                  </span>
                 </button>
               ))}
             </div>
@@ -171,15 +181,26 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
             <button
               onClick={() => onQuickView(solution)}
               className="col-span-1 h-9 border border-black bg-white text-black text-[10px] font-black uppercase hover:bg-neutral-100 flex items-center justify-center"
-              title="Ver especificaciones completas"
+              title="Ficha técnica completa"
             >
               <Eye className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => handleAdd('ESTÁNDAR', 0)}
-              className="col-span-3 h-9 bg-black text-white text-[11px] font-black uppercase tracking-wider border border-black hover:bg-neutral-800 transition-colors flex items-center justify-center"
+              className={`col-span-3 h-9 text-[10px] font-black uppercase tracking-wider border border-black transition-colors flex items-center justify-center gap-1.5 ${
+                justAdded
+                  ? 'bg-emerald-700 text-white border-emerald-700'
+                  : 'bg-black text-white hover:bg-neutral-800'
+              }`}
             >
-              [ AGREGAR • {formatCurrency(solution.price)} ]
+              {justAdded ? (
+                <>
+                  <Check className="w-3.5 h-3.5" />
+                  <span>[ AGREGADO ]</span>
+                </>
+              ) : (
+                <span>[ AGREGAR • {formatCurrency(solution.price)} ]</span>
+              )}
             </button>
           </div>
 

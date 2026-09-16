@@ -17,13 +17,18 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ category, onQuickView 
   return (
     <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Información de la colección */}
-      <div className="flex items-center justify-between pb-4 mb-6 border-b border-neutral-200">
-        <span className="text-xs font-black uppercase tracking-widest text-black">
-          SERVICIOS & PAQUETES ACTIVOS // {category.toUpperCase()}
-        </span>
-        <span className="text-xs font-mono text-neutral-500">
-          MOSTRANDO {filtered.length} DE {solutions.length} UNIDADES
-        </span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-6 border-b border-black gap-2 text-left">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 bg-red-600 inline-block animate-pulse" />
+          <span className="text-xs font-black uppercase tracking-widest text-black font-mono">
+            SERVICIOS & PAQUETES ACTIVOS // {category.toUpperCase()}
+          </span>
+        </div>
+        <div className="flex items-center gap-3 text-xs font-mono text-neutral-500">
+          <span>SLA: 48-72H</span>
+          <span>•</span>
+          <span>MOSTRANDO {filtered.length} DE {solutions.length} UNIDADES</span>
+        </div>
       </div>
 
       {/* Grid de Productos */}
