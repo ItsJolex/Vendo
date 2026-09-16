@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BLINDAJE ABSOLUTO SHARP CATALOG / ESTILO RECTO YOUNGLA */
+* {
+  border-radius: 0px !important;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-black antialiased font-sans;
+  }
+}
+
+/* Ocultar barra de scroll para carruseles de pestañas */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Bordes capilares de precisión industrial */
+.hairline-border {
+  border-width: 1px;
+  border-color: #E5E5E5;
+}
