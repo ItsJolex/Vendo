@@ -13,11 +13,11 @@ export const TechnicalSpecs: React.FC = () => {
               [ FICHA TÉCNICA // AUDITORÍA DE RENDIMIENTO ]
             </span>
             <h2 className="text-2xl sm:text-4xl font-black font-display uppercase tracking-tight text-black">
-              INGENIERÍA WEB SIN FRICCIÓN TÉCNICA
+              INGENIERÍA WEB SIN COMPLICACIONES
             </h2>
           </div>
           <span className="text-xs font-mono text-neutral-500">
-            ESTÁNDAR VÉNDO CORE 2026
+            ESTÁNDAR VÉNDO 2026
           </span>
         </div>
 
@@ -29,21 +29,20 @@ export const TechnicalSpecs: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-black uppercase text-neutral-400">
-                  // MODULO 01
+                  // MÓDULO 01
                 </span>
                 <Terminal className="w-4 h-4 text-black" />
               </div>
               <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-black mb-2">
-                VELOCIDAD EXTREMA &lt; 0.8S
+                CARGA EN &lt; 0.8S
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed font-medium mb-6">
-                El 53% de los usuarios abandona una web si tarda más de 3 segundos en cargar. 
-                Desarrollamos código estático compilado en Edge sin plugins pesados. Tu página vuela tanto en 4G como en fibra óptica.
+                Nadie espera una página lenta. Tu web abre al instante tanto en datos móviles como en Wi-Fi. Cero código basura ni plugins pesados.
               </p>
             </div>
             <div className="border-t border-neutral-200 pt-4 font-mono text-xs text-black">
-              <span className="block font-bold">LIGHTHOUSE SCORE: 98-100</span>
-              <span className="text-[10px] text-neutral-500">OPTIMIZACIÓN SUB-SEGUNDO // ZERO BLOAT</span>
+              <span className="block font-bold">LIGHTHOUSE SCORE: 99/100</span>
+              <span className="text-[10px] text-neutral-500">CERO REBOTES // MÁXIMA VELOCIDAD</span>
             </div>
           </div>
 
@@ -52,20 +51,20 @@ export const TechnicalSpecs: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-black uppercase text-neutral-400">
-                  // MODULO 02
+                  // MÓDULO 02
                 </span>
                 <Smartphone className="w-4 h-4 text-black" />
               </div>
               <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-black mb-2">
-                MOBILE-FIRST TRANSACCIONAL
+                100% PARA MÓVIL
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed font-medium mb-6">
-                El 82% del tráfico de tus campañas proviene de celulares. Diseñamos con ergonomía táctil: botones grandes al alcance del pulgar, drawer deslizable y carga instantánea.
+                El 85% de tus clientes locales busca desde su teléfono. Diseñamos con botones táctiles grandes, navegación fluida y formato tipo aplicación.
               </p>
             </div>
             <div className="border-t border-neutral-200 pt-4 font-mono text-xs text-black">
-              <span className="block font-bold">TASA DE REBOTE: -58%</span>
-              <span className="text-[10px] text-neutral-500">INTERFAZ TÁCTIL ESTILO APLICACIÓN</span>
+              <span className="block font-bold">RESPUESTA TÁCTIL INMEDIATA</span>
+              <span className="text-[10px] text-neutral-500">DISEÑO ADAPTADO A TU CLIENTE LOCAL</span>
             </div>
           </div>
 
@@ -74,19 +73,19 @@ export const TechnicalSpecs: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-black uppercase text-neutral-400">
-                  // MODULO 03
+                  // MÓDULO 03
                 </span>
                 <ShoppingBag className="w-4 h-4 text-black" />
               </div>
               <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-black mb-2">
-                WHATSAPP & STRIPE EN 1-CLIC
+                WHATSAPP EN 1 CLIC
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed font-medium mb-6">
-                Conectamos tu pedido directamente al WhatsApp de tu equipo con el detalle estructurado de la orden o a pasarelas como Stripe y Mercado Pago para recibir el dinero en tu cuenta bancaria.
+                Sin carritos engorrosos ni formularios infinitos. El cliente toca un botón y te escribe directo con el pedido o consulta ya redactada.
               </p>
             </div>
             <div className="border-t border-neutral-200 pt-4 font-mono text-xs text-black">
-              <span className="block font-bold">CONVERSIÓN DIRECTA: +3.4X</span>
+              <span className="block font-bold">CONVERSIÓN DIRECTA</span>
               <span className="text-[10px] text-neutral-500">CERO COMISIONES DE PLATAFORMAS</span>
             </div>
           </div>
@@ -97,10 +96,10 @@ export const TechnicalSpecs: React.FC = () => {
         <div className="mt-10 border border-black bg-white">
           <div className="p-4 bg-neutral-100 border-b border-black flex items-center justify-between">
             <span className="text-xs font-black uppercase tracking-widest text-black font-mono">
-              [ TABLA DE BENCHMARK // VÉNDO VS. DESARROLLO CONVENCIONAL ]
+              [ COMPARATIVA // VÉNDO VS. WEBS TRADICIONALES ]
             </span>
             <span className="text-[10px] font-mono text-neutral-500 hidden sm:inline">
-              AUDITADO EN GOOGLE PAGESPEED INSIGHTS
+              SIN TRUCOS NI COSTOS OCULTOS
             </span>
           </div>
 
@@ -108,31 +107,36 @@ export const TechnicalSpecs: React.FC = () => {
             <table className="w-full text-left border-collapse text-xs font-mono">
               <thead>
                 <tr className="bg-black text-white border-b border-black uppercase text-[10px] tracking-wider">
-                  <th className="p-3 border-r border-neutral-800">MÉTRICA / PARÁMETRO</th>
-                  <th className="p-3 border-r border-neutral-800 text-neutral-400">WORDPRESS / WIX / ELEMENTOR</th>
-                  <th className="p-3 text-emerald-400 font-bold">ARQUITECTURA VÉNDO ®</th>
+                  <th className="p-3 border-r border-neutral-800">PARÁMETRO</th>
+                  <th className="p-3 border-r border-neutral-800 text-neutral-400">WEBS TRADICIONALES (WORDPRESS/WIX)</th>
+                  <th className="p-3 text-emerald-400 font-bold">SISTEMA VÉNDO ®</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-200">
                 <tr>
-                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Velocidad LCP (Carga de contenido)</td>
-                  <td className="p-3 text-red-600 border-r border-neutral-200">3.8s - 6.5s (Lenta por plugins)</td>
-                  <td className="p-3 font-bold text-black">&lt; 0.8s (Compilación estática en Edge)</td>
+                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Velocidad en Celular</td>
+                  <td className="p-3 text-red-600 border-r border-neutral-200">4.0s - 7.5s (Lenta y pesada)</td>
+                  <td className="p-3 font-bold text-black">&lt; 0.8s (Carga instantánea)</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Costo Mensual de Mantenimiento</td>
-                  <td className="p-3 text-neutral-600 border-r border-neutral-200">$25 a $60 USD / mes (Hosting cPanel + plugins)</td>
-                  <td className="p-3 font-bold text-black">$0 USD / mes (Infraestructura Serverless)</td>
+                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Costo de Hosting Mensual</td>
+                  <td className="p-3 text-neutral-600 border-r border-neutral-200">$15 a $45 USD/mes obligatorios</td>
+                  <td className="p-3 font-bold text-black">$0 USD (Hosting de alta velocidad incluido)</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Riesgo de Caídas / Infección malware</td>
-                  <td className="p-3 text-neutral-600 border-r border-neutral-200">Alto (Plugins desactualizados)</td>
-                  <td className="p-3 font-bold text-black">Nulo (Sin base de datos expuesta)</td>
+                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Ficha Google Maps</td>
+                  <td className="p-3 text-neutral-600 border-r border-neutral-200">Cobro extra o no incluida</td>
+                  <td className="p-3 font-bold text-black">Incluida y optimizada para tu ciudad</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Flujo de Compra</td>
-                  <td className="p-3 text-neutral-600 border-r border-neutral-200">3 a 5 pasos lentos con recargas</td>
-                  <td className="p-3 font-bold text-black">1-Clic directo a WhatsApp o Pasarela</td>
+                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Contacto con el Cliente</td>
+                  <td className="p-3 text-neutral-600 border-r border-neutral-200">Formulario lento por correo</td>
+                  <td className="p-3 font-bold text-black">1 Clic directo a tu WhatsApp con mensaje listo</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-bold bg-neutral-50 border-r border-neutral-200">Tiempo de Entrega</td>
+                  <td className="p-3 text-neutral-600 border-r border-neutral-200">3 a 6 semanas de espera</td>
+                  <td className="p-3 font-bold text-black">48 a 72 horas garantizadas</td>
                 </tr>
               </tbody>
             </table>

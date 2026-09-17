@@ -823,7 +823,7 @@ const handleCheckoutWhatsApp = () => {
 
   const message = `¡Hola VÉNDO! 🚀\nConfirmo el pedido de mi infraestructura web:\n\n${itemsSummary}\n\n*TOTAL ORDEN:* ${formatCurrency(totalAmount)}\n\n¿Cuáles son los requerimientos iniciales para iniciar el sprint de 72h?`;
 
-  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+  window.open(`https://wa.me/584149428999?text=${encodeURIComponent(message)}`, '_blank');
 };
 ```
 

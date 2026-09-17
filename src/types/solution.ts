@@ -1,11 +1,18 @@
 export type CategoryId = 'todos' | 'landing' | 'ecommerce' | 'corporate' | 'funnel';
 
+export const WHATSAPP_PHONE = '584149428999';
+
+export const getWhatsAppUrl = (text: string): string => {
+  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+};
+
 export interface Addon {
   id: string;
   name: string;
   price: number;
   description: string;
   tag?: string;
+  comingSoon?: boolean;
 }
 
 export interface WebSolution {

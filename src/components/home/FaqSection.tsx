@@ -6,24 +6,28 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: '¿QUÉ MATERIAL EXACTO NECESITAN DE MI PARTE PARA EMPEZAR?',
-      a: 'Lo indispensable: logotipo (si lo tienes), la lista de tus servicios o productos con precios, y a dónde quieres recibir a tus clientes (teléfono o link de pago). Si no tienes fotos o textos terminados, nosotros redactamos los copys de venta y seleccionamos fotografía editorial de alta calidad sin costo adicional.',
+      q: '¿QUÉ NECESITO PARA EMPEZAR?',
+      a: 'Solo tu logo (si tienes), la lista de tus productos o servicios con precios, y tu número de WhatsApp. Nosotros redactamos los textos y preparamos el diseño.',
     },
     {
-      q: '¿POR QUÉ DICEN QUE EL HOSTING ES DE $0 USD AL MES?',
-      a: 'Desarrollamos sobre arquitectura moderna Serverless (Vercel / Cloudflare Edge). A diferencia de WordPress, que requiere servidores dedicados lentos de $20 a $50/mes para no caerse, el código estático compilado no consume cómputo continuo y el tier gratuito de estas redes mundiales cubre hasta 100.000 visitas al mes sin pagar un solo centavo.',
+      q: '¿EL HOSTING ESTÁ INCLUIDO?',
+      a: 'Sí, hosting de alta velocidad incluido. Sin mensualidades obligatorias ni costos sorpresa.',
     },
     {
-      q: '¿CUÁNTO TIEMPO TARDA REALMENTE LA ENTREGA?',
-      a: 'Para Landing Pages CRO el tiempo de entrega en entorno privado de staging es de 48 a 72 horas hábiles. Para tiendas online completas y webs corporativas, el sprint toma de 5 a 7 días hábiles tras recibir tus productos o contenidos base.',
+      q: '¿CUÁNTO TIEMPO TARDA LA ENTREGA?',
+      a: 'Entregamos en 48 a 72 horas para páginas web locales y de 3 a 5 días para catálogos con pedidos.',
     },
     {
-      q: '¿CÓMO FUNCIONA EL COBRO Y LAS PASARELAS DE PAGO?',
-      a: 'No cobramos ninguna comisión sobre tus ventas. Te configuramos tu propia pasarela (Stripe o Mercado Pago) directamente enlazada a tu cuenta de banco para que el dinero de tus clientes ingrese de forma automática e inmediata.',
+      q: '¿CÓMO ME CONTACTAN O COMPRAN LOS CLIENTES?',
+      a: 'Tus clientes tocan un botón y te escriben directo a tu WhatsApp con el producto o pedido listo, o te llaman directamente desde Google Maps.',
     },
     {
-      q: '¿QUÉ SUCEDE SI NECESITO CAMBIOS ANTES DEL LANZAMIENTO?',
-      a: 'Protocolo de Revisión Quirúrgica: antes de conectar tu dominio oficial, revisamos la página contigo en un enlace privado. Realizamos los ajustes de diseño, textos y fotos que solicites hasta que el resultado cumpla al 100% el estándar acordado.',
+      q: '¿ME AYUDAN CON GOOGLE MAPS?',
+      a: 'Sí, optimizamos y enlazamos la ficha de tu negocio para que aparezcas cuando busquen lo que vendes en tu ciudad.',
+    },
+    {
+      q: '¿QUÉ PASA SI QUIERO CAMBIOS ANTES DE PUBLICAR?',
+      a: 'Revisamos la página contigo en un enlace privado. Hacemos los ajustes que necesites hasta que estés 100% satisfecho antes de activarla.',
     },
   ];
 
@@ -34,7 +38,7 @@ export const FaqSection: React.FC = () => {
         {/* Cabecera */}
         <div className="mb-10 text-left">
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-500 block mb-1">
-            [ RESOLUCIÓN DE DUDAS COMERCIALES Y TÉCNICAS ]
+            [ PREGUNTAS FRECUENTES // DUDAS RESUELTAS ]
           </span>
           <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-black">
             PREGUNTAS FRECUENTES // FAQ

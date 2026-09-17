@@ -14,9 +14,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
   const [justAdded, setJustAdded] = useState(false);
 
   const variants = [
-    { label: 'BÁSICO', priceDelta: 0 },
-    { label: 'PRO (+SEO)', priceDelta: 69 },
-    { label: 'FULL (+DOMINIO)', priceDelta: 99 },
+    { label: 'BASE', priceDelta: 0 },
+    { label: 'PRO (+MAPS)', priceDelta: 20 },
+    { label: 'FULL (+QR)', priceDelta: 35 },
   ];
 
   const handleAdd = (variantName: string, delta: number) => {
@@ -186,7 +186,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
               <Eye className="w-3.5 h-3.5" />
             </button>
             <button
-              onClick={() => handleAdd('ESTÁNDAR', 0)}
+              onClick={() => handleAdd('BASE', 0)}
               className={`col-span-3 h-9 text-[10px] font-black uppercase tracking-wider border border-black transition-colors flex items-center justify-center gap-1.5 ${
                 justAdded
                   ? 'bg-emerald-700 text-white border-emerald-700'

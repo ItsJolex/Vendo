@@ -16,7 +16,7 @@ export const SolutionDetailsModal: React.FC<SolutionDetailsModalProps> = ({
 }) => {
   const { addItem } = useCart();
   const [selectedPlan, setSelectedPlan] = useState<{ label: string; delta: number }>({
-    label: 'ESTÁNDAR',
+    label: 'BASE',
     delta: 0,
   });
   const [activeTab, setActiveTab] = useState<'features' | 'deliverables' | 'stack'>('features');
@@ -24,9 +24,9 @@ export const SolutionDetailsModal: React.FC<SolutionDetailsModalProps> = ({
   if (!isOpen || !solution) return null;
 
   const planOptions = [
-    { label: 'ESTÁNDAR', delta: 0, desc: 'Configuración base lista para producción' },
-    { label: 'PRO (+SEO)', delta: 69, desc: 'Optimización avanzada de velocidad y metadatos Google' },
-    { label: 'FULL (+DOMINIO)', delta: 99, desc: 'Dominio .com + Servidor Edge + Soporte 60 días' },
+    { label: 'BASE', delta: 0, desc: 'Página web lista para vender + Hosting incluido' },
+    { label: 'PRO (+MAPS)', delta: 20, desc: 'Optimización avanzada de Google Maps en tu ciudad' },
+    { label: 'FULL (+QR)', delta: 35, desc: 'Google Maps + Código QR para mostrador + Hosting 1 año' },
   ];
 
   const currentPrice = solution.price + selectedPlan.delta;

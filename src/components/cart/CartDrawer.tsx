@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../../context/CartContext';
-import { formatCurrency } from '../../types/solution';
+import { formatCurrency, getWhatsAppUrl } from '../../types/solution';
 import { globalAddons } from '../../data/solutions';
 import { X, Plus, Minus, Trash2, ShoppingBag, ShieldCheck, ArrowRight, Tag, Check } from 'lucide-react';
 
@@ -69,11 +69,11 @@ export const CartDrawer: React.FC = () => {
 
     const couponLine = couponApplied ? `\n*CUPÓN APLICADO:* ${couponApplied} (-${formatCurrency(discountAmount)})\n` : '';
 
-    const message = `¡Hola VÉNDO! 🚀\nConfirmo el pedido de mi infraestructura web:\n\n${itemsSummary}\n${couponLine}\n*TOTAL ORDEN:* ${formatCurrency(
+    const message = `¡Hola VÉNDO! 🚀\nQuiero contratar el siguiente plan para mi negocio:\n\n${itemsSummary}\n${couponLine}\n*TOTAL:* ${formatCurrency(
       finalAmount
-    )}\n\n¿Cuáles son los requerimientos técnicos para iniciar el sprint de 72h?`;
+    )}\n\n¿Cuáles son los pasos para comenzar con el diseño y la entrega en 72h?`;
 
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(getWhatsAppUrl(message), '_blank');
   };
 
   return (
@@ -295,7 +295,11 @@ export const CartDrawer: React.FC = () => {
                           +{formatCurrency(addon.price)}
                         </span>
                       </div>
-                      {isAlreadyAdded ? (
+                      {addon.comingSoon ? (
+                        <span className="px-2.5 py-1 border border-neutral-400 text-neutral-500 text-[9px] font-mono font-black uppercase bg-neutral-100 flex-shrink-0 select-none">
+                          [ PRÓXIMAMENTE ]
+                        </span>
+                      ) : isAlreadyAdded ? (
                         <span className="px-2 py-1 border border-emerald-700 text-emerald-800 text-[9px] font-mono font-black uppercase bg-white flex items-center gap-1">
                           <Check className="w-2.5 h-2.5" />
                           <span>AGREGADO</span>

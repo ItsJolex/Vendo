@@ -50,7 +50,7 @@ export const BottomSheetDrawer: React.FC<BottomSheetDrawerProps> = ({
     const text = `¡Hola VÉNDO! 🚀\nQuiero ordenar la solución web:\n*${solution.name}* (${formatCurrency(solution.price)})${addonsText}\n*Total estimado:* ${formatCurrency(finalTotal)}\n\n*Mis Datos:*\n- Nombre: ${name}\n- Teléfono/WhatsApp: ${phone}\n- Mi Negocio: ${businessName || 'Por definir'}\n\nQuedo atento a los siguientes pasos.`;
 
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/584149428999?text=${encoded}`, '_blank');
     setSubmitted(true);
   };
 

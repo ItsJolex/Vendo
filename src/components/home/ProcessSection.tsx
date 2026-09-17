@@ -1,24 +1,29 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
+import { getWhatsAppUrl } from '../../types/solution';
 
 export const ProcessSection: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'SELECCIÓN DE ARQUITECTURA',
-      desc: 'Seleccionas el paquete del catálogo y los módulos específicos que requiere tu modelo de venta directa o captación.',
+      title: 'ELIGES TU PLAN Y ENVÍAS TUS DATOS',
+      desc: 'Nos mandas tu logo, productos o servicios y tu número de WhatsApp. Sin formularios complicados ni tecnicismos.',
     },
     {
       num: '02',
-      title: 'SPRINT DE DESARROLLO 72H',
-      desc: 'Programación en rama de staging, redacción de textos transaccionales y configuración de pasarelas. Monitoreas el avance en un enlace privado.',
+      title: 'CONSTRUIMOS TU WEB EN 72H',
+      desc: 'Diseñamos tu página para celulares, enlazamos tu Google Maps y configuramos tus pedidos a WhatsApp.',
     },
     {
       num: '03',
-      title: 'DESPLIEGUE EN PRODUCCIÓN',
-      desc: 'Conexión de dominio oficial con SSL Wildcard, auditoría final de Core Web Vitals (<0.8s) y entrega de accesos completos.',
+      title: 'REVISAS Y EMPIEZAS A VENDER',
+      desc: 'Te enviamos el enlace privado para tu aprobación final y la publicamos lista para recibir clientes.',
     },
   ];
+
+  const whatsappProcessUrl = getWhatsAppUrl(
+    'Hola VÉNDO, quiero conocer más sobre el servicio para mi negocio local'
+  );
 
   return (
     <section id="proceso" className="py-16 bg-neutral-50 border-b border-black">
@@ -35,7 +40,7 @@ export const ProcessSection: React.FC = () => {
             </h2>
           </div>
           <span className="text-xs font-mono text-neutral-500">
-            CERO RETRASOS // ENTREGA ÁGIL
+            CERO RETRASOS // ENTREGA EN 72H
           </span>
         </div>
 
@@ -64,20 +69,20 @@ export const ProcessSection: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-white flex-shrink-0" />
             <div>
               <h4 className="text-xs sm:text-sm font-black uppercase tracking-widest">
-                PROTOCOLO DE REVISIÓN QUIRÚRGICA VÉNDO
+                GARANTÍA TOTAL // SIN COSTOS OCULTOS
               </h4>
               <p className="text-[11px] text-neutral-300 font-medium">
-                Rondas de ajustes en el entorno de pruebas antes del despliegue final. Si el sitio no carga en &lt; 0.8s, optimizamos el código sin costo adicional.
+                Todo incluido: hosting de alta velocidad, dominio y configuración. Si algo no te gusta antes del lanzamiento, lo ajustamos hasta que estés 100% satisfecho.
               </p>
             </div>
           </div>
           <a
-            href="https://wa.me/?text=Hola%20VÉNDO,%20quiero%20conocer%20más%20sobre%20el%20protocolo%20de%20entrega%20en%2072h"
+            href={whatsappProcessUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-white text-black text-xs font-black uppercase tracking-wider border border-white hover:bg-neutral-200 transition-colors flex-shrink-0 font-mono"
           >
-            [ HABLAR CON EL EQUIPO ]
+            [ HABLAR CON EL EQUIPO → ]
           </a>
         </div>
 

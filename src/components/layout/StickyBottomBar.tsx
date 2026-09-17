@@ -52,10 +52,10 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
             {/* Estado inicial sin items */}
             <div className="flex flex-col text-left">
               <span className="text-[9px] font-mono font-bold uppercase text-red-600">
-                [ CUPOS LIMITADOS ]
+                [ HOSTING INCLUIDO ]
               </span>
               <span className="text-xs font-black font-mono text-black">
-                DESDE $289 USD
+                DESDE $49 USD
               </span>
             </div>
 

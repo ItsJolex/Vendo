@@ -100,7 +100,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             </p>
           </div>
           <a
-            href="https://wa.me/?text=Hola%20VÉNDO,%20necesito%20una%20solución%20web%20a%20medida%20para%20mi%20empresa"
+            href="https://wa.me/584149428999?text=Hola%20VÉNDO,%20necesito%20una%20solución%20web%20a%20medida%20para%20mi%20empresa"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white border border-[#E2E8F0] text-xs font-bold text-[#111111] hover:border-black transition-all"

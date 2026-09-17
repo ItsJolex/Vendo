@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, MessageSquare, Send } from 'lucide-react';
+import { getWhatsAppUrl } from '../../types/solution';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -9,14 +10,14 @@ interface ConsultationModalProps {
 export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }) => {
   const [name, setName] = useState('');
   const [business, setBusiness] = useState('');
-  const [need, setNeed] = useState('Aumentar clientes y ventas directas');
+  const [need, setNeed] = useState('Aparecer en Google Maps y búsqueda local');
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `¡Hola equipo VÉNDO! 🚀\nMi nombre es *${name}* (Marca/Proyecto: *${business || 'Nuevo Lanzamiento'}*).\nObjetivo comercial: *${need}*.\n\nQuiero revisar requerimientos técnicos y disponibilidad de cupo para el sprint de esta semana.`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    const text = `¡Hola equipo VÉNDO! 🚀\nMi nombre es *${name}* de *${business || 'Nuevo Proyecto'}*.\nObjetivo de mi negocio: *${need}*.\n\nQuiero información para activar mi página web y aparecer en Google Maps.`;
+    window.open(getWhatsAppUrl(text), '_blank');
     onClose();
   };
 
@@ -29,7 +30,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
             <div className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-black" />
               <h3 className="text-xs font-black uppercase tracking-widest text-black font-mono">
-                BRIEF TÉCNICO // WHATSAPP DIRECTO
+                ASESORÍA DIRECTA // WHATSAPP
               </h3>
             </div>
             <button onClick={onClose} className="p-1 hover:bg-black hover:text-white">
@@ -38,7 +39,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           </div>
 
           <p className="text-xs text-neutral-600 mb-4 font-medium leading-relaxed">
-            Canal técnico directo. Evaluamos el alcance de tu proyecto, stack recomendado y fecha de entrega estimada en minutos.
+            Canal directo. Analizamos tu negocio, te recomendamos el plan ideal y te damos fecha de entrega en 72h.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-3">
@@ -63,7 +64,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               <input
                 type="text"
                 required
-                placeholder="EJ. MARCA STREETWEAR / CLÍNICA / CONSULTORÍA"
+                placeholder="EJ. RESTAURANTE / CONSULTORIO / TIENDA"
                 value={business}
                 onChange={(e) => setBusiness(e.target.value)}
                 className="w-full h-10 px-3 border border-black text-xs font-mono focus:outline-none bg-white text-black"
@@ -79,10 +80,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                 onChange={(e) => setNeed(e.target.value)}
                 className="w-full h-10 px-3 border border-black text-xs font-mono bg-white text-black focus:outline-none"
               >
-                <option value="Aumentar clientes y ventas directas">AUMENTAR CLIENTES Y VENTAS DIRECTAS</option>
-                <option value="Vender productos en automático (E-commerce)">VENDER PRODUCTOS EN AUTOMÁTICO (E-COMMERCE)</option>
-                <option value="Web corporativa de prestigio para empresas">WEB CORPORATIVA DE PRESTIGIO PARA EMPRESAS</option>
-                <option value="Rediseñar web vieja y lenta que no convierte">REDISEÑAR WEB VIEJA Y LENTA QUE NO CONVIERTE</option>
+                <option value="Aparecer en Google Maps y búsqueda local">APARECER EN GOOGLE MAPS Y BÚSQUEDA LOCAL</option>
+                <option value="Página web rápida para mi negocio">PÁGINA WEB RÁPIDA PARA MI NEGOCIO</option>
+                <option value="Vender con catálogo y pedidos a WhatsApp">VENDER CON CATÁLOGO Y PEDIDOS A WHATSAPP</option>
+                <option value="Web corporativa para servicios profesionales">WEB CORPORATIVA PARA SERVICIOS PROFESIONALES</option>
               </select>
             </div>
 
