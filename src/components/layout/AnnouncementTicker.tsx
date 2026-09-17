@@ -2,7 +2,7 @@ import React from 'react';
 
 export const AnnouncementTicker: React.FC = () => {
   const messages = [
-    '/// VÉNDO ® // AGENCIA DE CRECIMIENTO DIGITAL PARA NEGOCIOS LOCALES',
+    '/// VÉNDO 2.0 // AGENCIA DE CRECIMIENTO DIGITAL PARA NEGOCIOS LOCALES',
     'HAZ QUE TE ENCUENTREN, HAZ QUE TE COMPREN',
     'PÁGINAS WEB + GOOGLE MAPS + PEDIDOS POR WHATSAPP',
     'PLANES DESDE $49 USD // HOSTING DE ALTA VELOCIDAD INCLUIDO',
@@ -10,12 +10,12 @@ export const AnnouncementTicker: React.FC = () => {
   ];
 
   return (
-    <div className="bg-black text-white text-[10px] font-mono font-bold uppercase tracking-widest py-2 overflow-hidden border-b border-neutral-800 select-none">
+    <div className="bg-emerald-pine text-white text-[10px] font-mono font-bold uppercase tracking-widest py-2.5 overflow-hidden border-b-2 border-emerald-deep select-none">
       <div className="flex w-max animate-ticker whitespace-nowrap">
         {[...messages, ...messages, ...messages, ...messages].map((msg, i) => (
           <span key={i} className="mx-6 flex items-center gap-4">
-            <span>{msg}</span>
-            <span className="text-red-600 font-bold">•</span>
+            <span className="text-white tracking-wider">{msg}</span>
+            <span className="text-emerald-vibrant font-black">✦</span>
           </span>
         ))}
       </div>

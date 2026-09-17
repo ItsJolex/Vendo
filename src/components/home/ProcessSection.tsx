@@ -26,36 +26,36 @@ export const ProcessSection: React.FC = () => {
   );
 
   return (
-    <section id="proceso" className="py-16 bg-neutral-50 border-b border-black">
+    <section id="proceso" className="py-16 bg-canvas-ice border-b-2 border-emerald-pine">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabecera */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 pb-4 border-b border-black gap-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 pb-4 border-b-2 border-emerald-pine gap-2">
           <div>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-500 block mb-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-silver-metallic block mb-1">
               [ PROTOCOLO DE TRABAJO ]
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-black">
+            <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-emerald-pine">
               CÓMO OPERAMOS // 3 PASOS
             </h2>
           </div>
-          <span className="text-xs font-mono text-neutral-500">
+          <span className="text-xs font-mono text-silver-metallic">
             CERO RETRASOS // ENTREGA EN 72H
           </span>
         </div>
 
         {/* Pasos en Rejilla Recta */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border border-black divide-y md:divide-y-0 md:divide-x divide-black bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-emerald-pine divide-y md:divide-y-0 md:divide-x divide-emerald-pine bg-white shadow-neo-pine">
           {steps.map((s) => (
             <div key={s.num} className="p-6 text-left flex flex-col justify-between">
               <div>
-                <span className="text-2xl font-black font-mono text-neutral-300 block mb-3">
+                <span className="text-2xl font-black font-mono text-emerald-vibrant block mb-3">
                   [{s.num}]
                 </span>
-                <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-black mb-2">
+                <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-pine mb-2">
                   {s.title}
                 </h3>
-                <p className="text-xs text-neutral-600 leading-relaxed font-medium">
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   {s.desc}
                 </p>
               </div>
@@ -64,14 +64,14 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* Garantía en caja recta */}
-        <div className="mt-8 p-6 bg-black text-white border border-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
+        <div className="mt-8 p-6 bg-emerald-deep text-white border-2 border-emerald-pine shadow-neo-pine-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
           <div className="flex items-center gap-3">
-            <ShieldCheck className="w-8 h-8 text-white flex-shrink-0" />
+            <ShieldCheck className="w-8 h-8 text-emerald-vibrant flex-shrink-0" />
             <div>
               <h4 className="text-xs sm:text-sm font-black uppercase tracking-widest">
                 GARANTÍA TOTAL // SIN COSTOS OCULTOS
               </h4>
-              <p className="text-[11px] text-neutral-300 font-medium">
+              <p className="text-[11px] text-silver-chrome font-medium">
                 Todo incluido: hosting de alta velocidad, dominio y configuración. Si algo no te gusta antes del lanzamiento, lo ajustamos hasta que estés 100% satisfecho.
               </p>
             </div>
@@ -80,7 +80,7 @@ export const ProcessSection: React.FC = () => {
             href={whatsappProcessUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-white text-black text-xs font-black uppercase tracking-wider border border-white hover:bg-neutral-200 transition-colors flex-shrink-0 font-mono"
+            className="btn-neo-silver px-4 py-2 text-xs font-black uppercase tracking-wider flex-shrink-0 font-mono"
           >
             [ HABLAR CON EL EQUIPO → ]
           </a>

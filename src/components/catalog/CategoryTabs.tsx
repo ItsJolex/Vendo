@@ -14,7 +14,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
   return (
     <div
       id="catalogo"
-      className="sticky top-[60px] z-30 bg-white border-y border-black px-4 sm:px-6 lg:px-8 py-3 scroll-mt-[60px]"
+      className="sticky top-[60px] z-30 bg-canvas-card border-y-2 border-emerald-pine px-4 sm:px-6 lg:px-8 py-3 scroll-mt-[60px]"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         
@@ -32,10 +32,10 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
               <button
                 key={cat.id}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`flex-shrink-0 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider transition-colors border ${
+                className={`flex-shrink-0 px-4 py-2 text-xs font-black uppercase tracking-wider transition-all border-2 border-emerald-pine ${
                   isActive
-                    ? 'bg-black text-white border-black'
-                    : 'bg-white text-black border-black/40 hover:border-black'
+                    ? 'bg-emerald-deep text-white shadow-neo-pine'
+                    : 'bg-white text-emerald-pine hover:bg-canvas-ice'
                 }`}
               >
                 [ {cat.label} ({count}) ]
@@ -45,8 +45,8 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
         </div>
 
         {/* Indicador de inventario a la derecha */}
-        <div className="hidden md:flex items-center gap-2 text-[11px] font-mono uppercase text-neutral-500 flex-shrink-0">
-          <span className="w-1.5 h-1.5 bg-black inline-block" />
+        <div className="hidden md:flex items-center gap-2 text-[11px] font-mono uppercase text-silver-metallic flex-shrink-0">
+          <span className="w-1.5 h-1.5 bg-emerald-vibrant inline-block" />
           <span>CATÁLOGO TRANSACCIONAL 2026</span>
         </div>
 

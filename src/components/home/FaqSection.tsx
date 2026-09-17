@@ -32,38 +32,38 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 bg-white border-b border-black">
+    <section id="faq" className="py-16 bg-canvas-ice border-b-2 border-emerald-pine">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabecera */}
         <div className="mb-10 text-left">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-500 block mb-1">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-silver-metallic block mb-1">
             [ PREGUNTAS FRECUENTES // DUDAS RESUELTAS ]
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-black">
+          <h2 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight text-emerald-pine">
             PREGUNTAS FRECUENTES // FAQ
           </h2>
         </div>
 
         {/* Acordeón Recto */}
-        <div className="border border-black divide-y divide-black">
+        <div className="border-2 border-emerald-pine divide-y-2 divide-emerald-pine shadow-neo-pine bg-white">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <div key={idx} className="bg-white">
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-neutral-50 transition-colors"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-canvas-ice transition-colors"
                 >
-                  <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black">
+                  <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-pine">
                     {faq.q}
                   </span>
-                  <span className="w-6 h-6 border border-black flex items-center justify-center flex-shrink-0 text-black font-mono">
+                  <span className="w-8 h-8 bg-emerald-pine border-2 border-emerald-pine flex items-center justify-center flex-shrink-0 text-white font-mono">
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </span>
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed border-t border-neutral-200 bg-neutral-50 font-medium">
+                  <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-silver-steel bg-canvas-ice font-medium">
                     {faq.a}
                   </div>
                 )}

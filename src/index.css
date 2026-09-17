@@ -2,14 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BLINDAJE ABSOLUTO SHARP CATALOG / ESTILO RECTO YOUNGLA */
+/* ==========================================================================
+   VÉNDO 2.0 // ESTILO NEO-BRUTALISTA TÁCTIL (0PX BORDER-RADIUS)
+   ========================================================================== */
+
 * {
   border-radius: 0px !important;
 }
 
 @layer base {
   body {
-    @apply bg-white text-black antialiased font-sans;
+    @apply bg-canvas-ice text-emerald-pine antialiased font-sans;
   }
 }
 
@@ -22,8 +25,64 @@
   scrollbar-width: none;
 }
 
-/* Bordes capilares de precisión industrial */
-.hairline-border {
-  border-width: 1px;
-  border-color: #E5E5E5;
+/* Botón Primario Esmeralda con Clic Mecánico */
+.btn-neo-emerald {
+  background-color: #0B5844;
+  color: #FFFFFF;
+  border: 2px solid #00381F;
+  box-shadow: 4px 4px 0px 0px #00381F;
+  transition: transform 100ms ease, box-shadow 100ms ease, background-color 100ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-neo-emerald:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #00381F;
+  background-color: #187E5F;
+}
+.btn-neo-emerald:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #00381F;
+}
+
+/* Botón Secundario Plata / Metálico */
+.btn-neo-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #CBD5E1 100%);
+  color: #00381F;
+  border: 2px solid #00381F;
+  box-shadow: 4px 4px 0px 0px #00381F;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-neo-silver:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #00381F;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 50%, #E2E8F0 100%);
+}
+.btn-neo-silver:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #00381F;
+}
+
+/* Tarjeta / Contenedor con Sombra Sólida Neo-Brutal */
+.card-neo-brutal {
+  background-color: #FFFFFF;
+  border: 2px solid #00381F;
+  box-shadow: 4px 4px 0px 0px #00381F;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+.card-neo-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #00381F;
+}
+
+/* Badge Plateado Metálico */
+.badge-silver {
+  background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 60%, #CBD5E1 100%);
+  color: #00381F;
+  border: 1px solid #94A3B8;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
 }

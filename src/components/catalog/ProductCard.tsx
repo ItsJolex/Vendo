@@ -33,31 +33,31 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
   };
 
   return (
-    <article className="group relative flex flex-col bg-white border border-neutral-300 hover:border-black transition-colors">
+    <article className="group relative flex flex-col bg-white border-2 border-emerald-pine shadow-neo-pine hover:shadow-neo-pine-lg hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all text-left">
       
       {/* Contenedor de Imagen 3:4 con Dual Flip */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 border-b border-neutral-200">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-canvas-ice border-b-2 border-emerald-pine">
         
         {/* Esquinas con cruces industriales blueprint (+) */}
-        <span className="absolute top-1 left-1.5 text-[10px] font-mono text-black/40 select-none z-10 pointer-events-none">+</span>
-        <span className="absolute top-1 right-1.5 text-[10px] font-mono text-black/40 select-none z-10 pointer-events-none">+</span>
+        <span className="absolute top-1 left-1.5 text-[10px] font-mono text-emerald-pine/40 select-none z-10 pointer-events-none">+</span>
+        <span className="absolute top-1 right-1.5 text-[10px] font-mono text-emerald-pine/40 select-none z-10 pointer-events-none">+</span>
 
-        {/* Badges de estilo YoungLA / Brutalista */}
+        {/* Badges de estilo Neo-Brutalista */}
         <div className="absolute top-2 left-2 z-20 flex flex-col gap-1 items-start">
           {solution.popular && (
-            <span className="bg-black text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 border border-black">
+            <span className="bg-emerald-deep text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 border-2 border-emerald-pine">
               [ BEST SELLER ]
             </span>
           )}
           {solution.spotsLeft !== undefined && (
-            <span className="bg-red-600 text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5">
+            <span className="badge-silver px-2 py-0.5 text-[9px] font-bold">
               [ {solution.spotsLeft} CUPOS RESTANTES ]
             </span>
           )}
         </div>
 
         {/* Indicador de Entrega en esquina superior derecha */}
-        <div className="absolute top-2 right-2 z-20 bg-white border border-black px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider text-black">
+        <div className="absolute top-2 right-2 z-20 bg-white border-2 border-emerald-pine px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-pine">
           {solution.deliveryDays}
         </div>
 
@@ -78,8 +78,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
         />
 
         {/* Quick Variant Selector Overlay (Desktop: Emerge en Hover) */}
-        <div className="absolute inset-x-0 bottom-0 z-20 hidden lg:flex translate-y-full items-center justify-center gap-1 bg-white/95 p-2.5 backdrop-blur-sm border-t border-black transition-transform duration-200 ease-out group-hover:translate-y-0">
-          <span className="text-[10px] font-black uppercase tracking-wider text-neutral-600 mr-1 font-mono">
+        <div className="absolute inset-x-0 bottom-0 z-20 hidden lg:flex translate-y-full items-center justify-center gap-1 bg-white/95 p-2.5 backdrop-blur-sm border-t-2 border-emerald-pine transition-transform duration-200 ease-out group-hover:translate-y-0">
+          <span className="text-[10px] font-black uppercase tracking-wider text-silver-metallic mr-1 font-mono">
             NIVEL:
           </span>
           {variants.map((v) => (
@@ -89,7 +89,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
                 e.stopPropagation();
                 handleAdd(v.label, v.priceDelta);
               }}
-              className="h-7 px-2 border border-black bg-white text-[10px] font-bold uppercase tracking-wider text-black hover:bg-black hover:text-white transition-colors"
+              className="h-7 px-2 border-2 border-emerald-pine bg-white text-[10px] font-bold uppercase tracking-wider text-emerald-pine hover:bg-emerald-pine hover:text-white transition-colors"
             >
               {v.label}
             </button>
@@ -100,7 +100,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
         <div className="lg:hidden absolute bottom-2 right-2 z-20">
           <button
             onClick={() => setMobileSelectOpen(!mobileSelectOpen)}
-            className="w-9 h-9 bg-black text-white flex items-center justify-center border border-black active:scale-95 text-xs font-bold"
+            className="w-9 h-9 bg-emerald-pine text-white flex items-center justify-center border-2 border-emerald-pine active:scale-95 text-xs font-bold shadow-neo-pine"
             aria-label="Seleccionar plan"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
@@ -109,8 +109,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
 
         {/* Desplegable móvil de variantes */}
         {mobileSelectOpen && (
-          <div className="lg:hidden absolute inset-x-0 bottom-0 z-30 bg-white border-t border-black p-2 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2">
-            <span className="text-[10px] font-black uppercase tracking-widest text-center text-neutral-500 font-mono">
+          <div className="lg:hidden absolute inset-x-0 bottom-0 z-30 bg-white border-t-2 border-emerald-pine p-2 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 shadow-neo-pine">
+            <span className="text-[10px] font-black uppercase tracking-widest text-center text-silver-metallic font-mono">
               SELECCIONA NIVEL DE SPRINT:
             </span>
             <div className="grid grid-cols-3 gap-1">
@@ -118,10 +118,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
                 <button
                   key={v.label}
                   onClick={() => handleAdd(v.label, v.priceDelta)}
-                  className="py-2 px-1 border border-black text-[9px] font-black uppercase bg-white text-black active:bg-black active:text-white flex flex-col items-center"
+                  className="py-2 px-1 border-2 border-emerald-pine text-[9px] font-black uppercase bg-white text-emerald-pine active:bg-emerald-pine active:text-white flex flex-col items-center"
                 >
                   <span>{v.label}</span>
-                  <span className="font-mono text-neutral-500">
+                  <span className="font-mono text-silver-metallic">
                     {formatCurrency(solution.price + v.priceDelta)}
                   </span>
                 </button>
@@ -136,24 +136,24 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
       <div className="p-4 flex flex-col flex-1 justify-between text-left">
         <div>
           {/* Micro-header con SKU y Métrica */}
-          <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-neutral-100 text-[9px] font-mono text-neutral-400">
-            <span className="font-bold text-black">{solution.sku}</span>
-            <span className="text-neutral-600 font-bold">{solution.specMetric}</span>
+          <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-silver-steel text-[9px] font-mono text-silver-metallic">
+            <span className="font-bold text-emerald-pine">{solution.sku}</span>
+            <span className="text-slate-600 font-bold">{solution.specMetric}</span>
           </div>
 
           {/* Título y Tagline */}
-          <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black line-clamp-1 mb-1">
+          <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-pine line-clamp-1 mb-1">
             {solution.name}
           </h3>
-          <p className="text-[11px] text-neutral-500 line-clamp-2 leading-tight mb-3">
+          <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mb-3">
             {solution.tagline}
           </p>
 
           {/* Características en viñetas rectangulares */}
-          <div className="space-y-1 mb-4 pt-2 border-t border-neutral-100 text-[11px] text-neutral-700 font-medium">
+          <div className="space-y-1 mb-4 pt-2 border-t border-silver-steel text-[11px] text-slate-700 font-medium">
             {solution.features.slice(0, 3).map((feat, idx) => (
               <div key={idx} className="flex items-center gap-1.5 line-clamp-1">
-                <span className="w-1 h-1 bg-black flex-shrink-0" />
+                <span className="w-1 h-1 bg-emerald-pine flex-shrink-0" />
                 <span className="truncate">{feat}</span>
               </div>
             ))}
@@ -161,17 +161,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
         </div>
 
         {/* Bloque Inferior: Precios y Acciones */}
-        <div className="pt-3 border-t border-black/10">
+        <div className="pt-3 border-t-2 border-emerald-pine">
           <div className="flex items-baseline justify-between mb-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-base sm:text-lg font-black tabular-nums text-black font-mono">
+              <span className="text-base sm:text-lg font-black tabular-nums text-emerald-pine font-mono">
                 {formatCurrency(solution.price)}
               </span>
-              <span className="text-xs text-neutral-400 line-through tabular-nums font-mono">
+              <span className="text-xs text-silver-metallic line-through tabular-nums font-mono">
                 {formatCurrency(solution.originalPrice)}
               </span>
             </div>
-            <span className="text-[10px] font-mono font-bold uppercase text-red-600">
+            <span className="text-[10px] font-mono font-bold uppercase text-emerald-vibrant">
               AHORRO {Math.round(((solution.originalPrice - solution.price) / solution.originalPrice) * 100)}%
             </span>
           </div>
@@ -180,17 +180,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView 
           <div className="grid grid-cols-4 gap-1.5">
             <button
               onClick={() => onQuickView(solution)}
-              className="col-span-1 h-9 border border-black bg-white text-black text-[10px] font-black uppercase hover:bg-neutral-100 flex items-center justify-center"
+              className="col-span-1 h-9 border-2 border-emerald-pine bg-white text-emerald-pine text-[10px] font-black uppercase hover:bg-canvas-ice flex items-center justify-center"
               title="Ficha técnica completa"
             >
               <Eye className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => handleAdd('BASE', 0)}
-              className={`col-span-3 h-9 text-[10px] font-black uppercase tracking-wider border border-black transition-colors flex items-center justify-center gap-1.5 ${
+              className={`col-span-3 h-9 text-[10px] font-black uppercase tracking-wider border-2 border-emerald-pine transition-colors flex items-center justify-center gap-1.5 ${
                 justAdded
-                  ? 'bg-emerald-700 text-white border-emerald-700'
-                  : 'bg-black text-white hover:bg-neutral-800'
+                  ? 'bg-emerald-deep text-white border-emerald-deep shadow-neo-emerald'
+                  : 'btn-neo-emerald'
               }`}
             >
               {justAdded ? (
