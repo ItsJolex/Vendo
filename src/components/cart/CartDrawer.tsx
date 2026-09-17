@@ -292,7 +292,7 @@ export const CartDrawer: React.FC = () => {
                           {addon.name}
                         </p>
                         <span className="text-[10px] font-mono text-silver-metallic">
-                          +{formatCurrency(addon.price)}
+                          +{formatCurrency(addon.price ?? 0)}
                         </span>
                       </div>
                       {addon.comingSoon ? (
@@ -311,7 +311,7 @@ export const CartDrawer: React.FC = () => {
                               id: addon.id,
                               title: addon.name,
                               variant: 'ADD-ON',
-                              price: addon.price,
+                              price: addon.price ?? 0,
                               image:
                                 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop',
                             })

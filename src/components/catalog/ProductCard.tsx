@@ -1,207 +1,107 @@
-import React, { useState } from 'react';
-import { WebSolution, formatCurrency } from '../../types/solution';
-import { useCart } from '../../context/CartContext';
-import { Plus, Eye, Check } from 'lucide-react';
+import React from 'react';
+import { WebSolution, getServiceConsultationUrl } from '../../types/solution';
+import { ServiceIllustration } from './ServiceIllustration';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 
 interface ProductCardProps {
   solution: WebSolution;
-  onQuickView: (solution: WebSolution) => void;
+  onSelectSolution: (solution: WebSolution) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ solution, onQuickView }) => {
-  const { addItem } = useCart();
-  const [mobileSelectOpen, setMobileSelectOpen] = useState(false);
-  const [justAdded, setJustAdded] = useState(false);
-
-  const variants = [
-    { label: 'BASE', priceDelta: 0 },
-    { label: 'PRO (+MAPS)', priceDelta: 20 },
-    { label: 'FULL (+QR)', priceDelta: 35 },
-  ];
-
-  const handleAdd = (variantName: string, delta: number) => {
-    addItem({
-      id: solution.id,
-      title: solution.name,
-      variant: variantName,
-      price: solution.price + delta,
-      image: solution.images.preview,
-    });
-    setMobileSelectOpen(false);
-    setJustAdded(true);
-    setTimeout(() => setJustAdded(false), 1200);
-  };
-
+export const ProductCard: React.FC<ProductCardProps> = ({ solution, onSelectSolution }) => {
   return (
     <article className="group relative flex flex-col bg-white border-2 border-emerald-pine shadow-neo-pine hover:shadow-neo-pine-lg hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all text-left">
       
-      {/* Contenedor de Imagen 3:4 con Dual Flip */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-canvas-ice border-b-2 border-emerald-pine">
-        
-        {/* Esquinas con cruces industriales blueprint (+) */}
-        <span className="absolute top-1 left-1.5 text-[10px] font-mono text-emerald-pine/40 select-none z-10 pointer-events-none">+</span>
-        <span className="absolute top-1 right-1.5 text-[10px] font-mono text-emerald-pine/40 select-none z-10 pointer-events-none">+</span>
-
-        {/* Badges de estilo Neo-Brutalista */}
-        <div className="absolute top-2 left-2 z-20 flex flex-col gap-1 items-start">
-          {solution.popular && (
-            <span className="bg-emerald-deep text-white text-[10px] font-black uppercase tracking-widest px-2 py-0.5 border-2 border-emerald-pine">
-              [ BEST SELLER ]
-            </span>
-          )}
-          {solution.spotsLeft !== undefined && (
-            <span className="badge-silver px-2 py-0.5 text-[9px] font-bold">
-              [ {solution.spotsLeft} CUPOS RESTANTES ]
-            </span>
-          )}
+      {/* Contenedor Superior: Badges y SLA */}
+      <div className="flex items-center justify-between p-2 bg-canvas-ice border-b-2 border-emerald-pine text-[9px] font-mono">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 bg-emerald-vibrant inline-block" />
+          <span className="font-bold text-emerald-pine">{solution.sku}</span>
         </div>
-
-        {/* Indicador de Entrega en esquina superior derecha */}
-        <div className="absolute top-2 right-2 z-20 bg-white border-2 border-emerald-pine px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-pine">
-          {solution.deliveryDays}
-        </div>
-
-        {/* Imagen Frontal */}
-        <img
-          src={solution.images.preview}
-          alt={solution.name}
-          className="h-full w-full object-cover object-top transition-opacity duration-300 group-hover:opacity-0"
-          loading="lazy"
-        />
-
-        {/* Imagen Reverso (Flip en Hover) */}
-        <img
-          src={solution.images.mobilePreview}
-          alt={`${solution.name} detalle`}
-          className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          loading="lazy"
-        />
-
-        {/* Quick Variant Selector Overlay (Desktop: Emerge en Hover) */}
-        <div className="absolute inset-x-0 bottom-0 z-20 hidden lg:flex translate-y-full items-center justify-center gap-1 bg-white/95 p-2.5 backdrop-blur-sm border-t-2 border-emerald-pine transition-transform duration-200 ease-out group-hover:translate-y-0">
-          <span className="text-[10px] font-black uppercase tracking-wider text-silver-metallic mr-1 font-mono">
-            NIVEL:
-          </span>
-          {variants.map((v) => (
-            <button
-              key={v.label}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleAdd(v.label, v.priceDelta);
-              }}
-              className="h-7 px-2 border-2 border-emerald-pine bg-white text-[10px] font-bold uppercase tracking-wider text-emerald-pine hover:bg-emerald-pine hover:text-white transition-colors"
-            >
-              {v.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Botón Rápido para Móviles (lg:hidden) */}
-        <div className="lg:hidden absolute bottom-2 right-2 z-20">
-          <button
-            onClick={() => setMobileSelectOpen(!mobileSelectOpen)}
-            className="w-9 h-9 bg-emerald-pine text-white flex items-center justify-center border-2 border-emerald-pine active:scale-95 text-xs font-bold shadow-neo-pine"
-            aria-label="Seleccionar plan"
-          >
-            <Plus className="w-4 h-4 stroke-[3]" />
-          </button>
-        </div>
-
-        {/* Desplegable móvil de variantes */}
-        {mobileSelectOpen && (
-          <div className="lg:hidden absolute inset-x-0 bottom-0 z-30 bg-white border-t-2 border-emerald-pine p-2 flex flex-col gap-1.5 animate-in slide-in-from-bottom-2 shadow-neo-pine">
-            <span className="text-[10px] font-black uppercase tracking-widest text-center text-silver-metallic font-mono">
-              SELECCIONA NIVEL DE SPRINT:
-            </span>
-            <div className="grid grid-cols-3 gap-1">
-              {variants.map((v) => (
-                <button
-                  key={v.label}
-                  onClick={() => handleAdd(v.label, v.priceDelta)}
-                  className="py-2 px-1 border-2 border-emerald-pine text-[9px] font-black uppercase bg-white text-emerald-pine active:bg-emerald-pine active:text-white flex flex-col items-center"
-                >
-                  <span>{v.label}</span>
-                  <span className="font-mono text-silver-metallic">
-                    {formatCurrency(solution.price + v.priceDelta)}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
+        <span className="bg-white border border-emerald-pine px-1.5 py-0.5 font-bold text-emerald-pine">
+          [ SLA: {solution.deliveryDays} ]
+        </span>
       </div>
 
-      {/* Información de la Solución */}
+      {/* Ilustración Técnica Vectorial en Verde Esmeralda y Plata */}
+      <div 
+        onClick={() => onSelectSolution(solution)} 
+        className="cursor-pointer border-b-2 border-emerald-pine group-hover:opacity-95 transition-opacity"
+      >
+        <ServiceIllustration type={solution.illustrationType} size="card" />
+      </div>
+
+      {/* Cuerpo Informativo */}
       <div className="p-4 flex flex-col flex-1 justify-between text-left">
         <div>
-          {/* Micro-header con SKU y Métrica */}
-          <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-silver-steel text-[9px] font-mono text-silver-metallic">
-            <span className="font-bold text-emerald-pine">{solution.sku}</span>
-            <span className="text-slate-600 font-bold">{solution.specMetric}</span>
+          {/* Métrica de Especificación */}
+          <div className="mb-2 text-[9px] font-mono font-bold uppercase tracking-wider text-slate-500">
+            {solution.specMetric}
           </div>
 
-          {/* Título y Tagline */}
-          <h3 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-pine line-clamp-1 mb-1">
+          {/* Título de la Solución */}
+          <h3 
+            onClick={() => onSelectSolution(solution)}
+            className="text-base sm:text-lg font-black uppercase tracking-wider text-emerald-pine hover:text-emerald-vibrant cursor-pointer transition-colors mb-2"
+          >
             {solution.name}
           </h3>
-          <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mb-3">
+
+          {/* Tagline / Breve resumen */}
+          <p className="text-xs text-slate-600 leading-relaxed mb-4">
             {solution.tagline}
           </p>
 
-          {/* Características en viñetas rectangulares */}
-          <div className="space-y-1 mb-4 pt-2 border-t border-silver-steel text-[11px] text-slate-700 font-medium">
+          {/* 3 Viñetas de lo que incluye */}
+          <div className="space-y-1.5 mb-5 pt-3 border-t border-silver-steel text-xs text-slate-700">
             {solution.features.slice(0, 3).map((feat, idx) => (
-              <div key={idx} className="flex items-center gap-1.5 line-clamp-1">
-                <span className="w-1 h-1 bg-emerald-pine flex-shrink-0" />
-                <span className="truncate">{feat}</span>
+              <div key={idx} className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-pine flex-shrink-0 mt-1.5" />
+                <span className="leading-snug">{feat}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bloque Inferior: Precios y Acciones */}
+        {/* Bloque Inferior: Cotización & Botones de Acción */}
         <div className="pt-3 border-t-2 border-emerald-pine">
-          <div className="flex items-baseline justify-between mb-3">
-            <div className="flex items-baseline gap-2">
-              <span className="text-base sm:text-lg font-black tabular-nums text-emerald-pine font-mono">
-                {formatCurrency(solution.price)}
+          {/* Estado de Cotización (Sin precios fijos) */}
+          <div className="flex items-center justify-between mb-3 text-left">
+            <div>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-pine block">
+                [ COTIZACIÓN A MEDIDA ]
               </span>
-              <span className="text-xs text-silver-metallic line-through tabular-nums font-mono">
-                {formatCurrency(solution.originalPrice)}
+              <span className="text-[10px] text-slate-500">
+                Presupuesto según tu objetivo
               </span>
             </div>
-            <span className="text-[10px] font-mono font-bold uppercase text-emerald-vibrant">
-              AHORRO {Math.round(((solution.originalPrice - solution.price) / solution.originalPrice) * 100)}%
+            <span className="text-[9px] font-mono font-bold bg-silver-chrome px-1.5 py-0.5 border border-silver-steel text-emerald-pine">
+              48-72H
             </span>
           </div>
 
-          {/* Botones de Acción Inmediata (0px) */}
-          <div className="grid grid-cols-4 gap-1.5">
+          {/* Botones de Acción */}
+          <div className="grid grid-cols-5 gap-1.5">
+            {/* Botón Principal: Ver Subpágina con Alcance Completo */}
             <button
-              onClick={() => onQuickView(solution)}
-              className="col-span-1 h-9 border-2 border-emerald-pine bg-white text-emerald-pine text-[10px] font-black uppercase hover:bg-canvas-ice flex items-center justify-center"
-              title="Ficha técnica completa"
+              onClick={() => onSelectSolution(solution)}
+              className="col-span-4 h-10 btn-neo-emerald text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-1.5"
             >
-              <Eye className="w-3.5 h-3.5" />
+              <span>[ VER DETALLES Y ALCANCE ]</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
-            <button
-              onClick={() => handleAdd('BASE', 0)}
-              className={`col-span-3 h-9 text-[10px] font-black uppercase tracking-wider border-2 border-emerald-pine transition-colors flex items-center justify-center gap-1.5 ${
-                justAdded
-                  ? 'bg-emerald-deep text-white border-emerald-deep shadow-neo-emerald'
-                  : 'btn-neo-emerald'
-              }`}
+
+            {/* Botón Secundario: Asesoría Directa a WhatsApp */}
+            <a
+              href={getServiceConsultationUrl(solution.name, solution.sku)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="col-span-1 h-10 border-2 border-emerald-pine bg-white hover:bg-canvas-ice text-emerald-pine flex items-center justify-center transition-colors shadow-neo-pine"
+              title="Solicitar asesoría rápida por WhatsApp"
+              aria-label="Asesoría por WhatsApp"
             >
-              {justAdded ? (
-                <>
-                  <Check className="w-3.5 h-3.5" />
-                  <span>[ AGREGADO ]</span>
-                </>
-              ) : (
-                <span>[ AGREGAR • {formatCurrency(solution.price)} ]</span>
-              )}
-            </button>
+              <MessageSquare className="w-4 h-4 text-emerald-pine" />
+            </a>
           </div>
 
         </div>

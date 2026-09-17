@@ -6,13 +6,25 @@ export const getWhatsAppUrl = (text: string): string => {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
+export const getServiceConsultationUrl = (serviceName: string, sku?: string): string => {
+  const text = `Hola VÉNDO, quiero recibir asesoría y una cotización personalizada para el servicio [${serviceName}${sku ? ` - ${sku}` : ''}]. Mi negocio es: `;
+  return getWhatsAppUrl(text);
+};
+
 export interface Addon {
   id: string;
   name: string;
-  price: number;
+  price?: number;
   description: string;
   tag?: string;
   comingSoon?: boolean;
+}
+
+export type IllustrationType = 'local-web' | 'catalog-whatsapp' | 'corporate' | 'funnel';
+
+export interface DeliverableSection {
+  title: string;
+  items: string[];
 }
 
 export interface WebSolution {
@@ -21,30 +33,26 @@ export interface WebSolution {
   name: string;
   tagline: string;
   category: Exclude<CategoryId, 'todos'>;
-  price: number;
-  originalPrice: number;
-  deliveryDays: string;
+  illustrationType: IllustrationType;
+  deliveryDays: string; // '48 a 72 Horas'
   specMetric: string;
   popular?: boolean;
-  spotsLeft?: number;
   rating: number;
   reviewsCount: number;
-  images: {
-    preview: string;
-    mobilePreview: string;
-  };
-  features: string[];
+  features: string[]; // Viñetas cortas para la tarjeta principal
   idealFor: string;
   deliverables: string[];
+  deliverablesSections: DeliverableSection[];
   techStack: string[];
+  timelineSteps: { step: string; title: string; time: string; desc: string }[];
 }
 
 export interface OrderDetails {
   solutionId: string;
   solutionName: string;
-  basePrice: number;
+  basePrice?: number;
   selectedAddons: Addon[];
-  totalPrice: number;
+  totalPrice?: number;
   customerName: string;
   customerPhone: string;
   businessName: string;

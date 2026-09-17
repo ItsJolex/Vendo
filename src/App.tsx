@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
 import { AnnouncementTicker } from './components/layout/AnnouncementTicker';
 import { Header } from './components/layout/Header';
 import { HeroBanner } from './components/home/HeroBanner';
 import { CategoryTabs } from './components/catalog/CategoryTabs';
 import { ProductGrid } from './components/catalog/ProductGrid';
+import { ServiceDetailPage } from './components/catalog/ServiceDetailPage';
 import { TechnicalSpecs } from './components/home/TechnicalSpecs';
 import { ProcessSection } from './components/home/ProcessSection';
 import { FaqSection } from './components/home/FaqSection';
@@ -12,81 +13,120 @@ import { Footer } from './components/layout/Footer';
 import { StickyBottomBar } from './components/layout/StickyBottomBar';
 import { CartDrawer } from './components/cart/CartDrawer';
 import { ConsultationModal } from './components/checkout/ConsultationModal';
-import { SolutionDetailsModal } from './components/checkout/SolutionDetailsModal';
 import { WebSolution, CategoryId } from './types/solution';
+import { solutions } from './data/solutions';
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>('todos');
-  const [inspectSolution, setInspectSolution] = useState<WebSolution | null>(null);
+  const [selectedSolutionId, setSelectedSolutionId] = useState<string | null>(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#/servicio/')) {
+      return hash.replace('#/servicio/', '');
+    }
+    return null;
+  });
   const [isConsultOpen, setIsConsultOpen] = useState(false);
 
-  const handleExploreCatalog = () => {
-    document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+  // Sincronización del hash de la URL para historial del navegador (Atrás / Adelante)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#/servicio/')) {
+        setSelectedSolutionId(hash.replace('#/servicio/', ''));
+      } else {
+        setSelectedSolutionId(null);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleSelectSolution = (sol: WebSolution) => {
+    window.location.hash = `#/servicio/${sol.id}`;
+    setSelectedSolutionId(sol.id);
   };
+
+  const handleBackToCatalog = () => {
+    window.location.hash = '';
+    setSelectedSolutionId(null);
+    setTimeout(() => {
+      document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleExploreCatalog = () => {
+    if (selectedSolutionId) {
+      handleBackToCatalog();
+    } else {
+      document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const activeSolution = solutions.find((s) => s.id === selectedSolutionId);
 
   return (
     <CartProvider>
-      <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-black selection:text-white pb-14 md:pb-0">
+      <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-emerald-pine selection:text-white pb-14 md:pb-0">
         
-        {/* Ticker Infinito Superior (Estilo YoungLA / Streetwear Drop) */}
+        {/* Ticker Infinito Superior */}
         <AnnouncementTicker />
 
-        {/* Cabecera Brutalista de 60px */}
+        {/* Cabecera Brutalista */}
         <Header onOpenConsult={() => setIsConsultOpen(true)} />
 
-        {/* Cuerpo Principal */}
-        <main className="flex-1">
-          {/* Hero Editorial de Alto Impacto con Especificaciones Técnicas */}
-          <HeroBanner
-            onExplore={handleExploreCatalog}
-            onOpenConsult={() => setIsConsultOpen(true)}
+        {/* CUERPO: RENDERIZADO CONDICIONAL DE SUBPÁGINA O LANDING */}
+        {activeSolution ? (
+          <ServiceDetailPage
+            solution={activeSolution}
+            onBack={handleBackToCatalog}
           />
+        ) : (
+          <main className="flex-1">
+            {/* Hero Banner VÉNDO 2.0 */}
+            <HeroBanner
+              onExplore={handleExploreCatalog}
+              onOpenConsult={() => setIsConsultOpen(true)}
+            />
 
-          {/* Barra de Categorías Pegajosa (La Landing actúa como Catálogo Embebido) */}
-          <CategoryTabs
-            activeCategory={activeCategory}
-            onSelectCategory={setActiveCategory}
-          />
+            {/* Pestañas de Filtro del Catálogo */}
+            <CategoryTabs
+              activeCategory={activeCategory}
+              onSelectCategory={setActiveCategory}
+            />
 
-          {/* Grilla de Soluciones Digitales con Tarjetas 3:4 y Dual-Flip */}
-          <ProductGrid
-            category={activeCategory}
-            onQuickView={(sol) => setInspectSolution(sol)}
-          />
+            {/* Grilla de Servicios con Ilustraciones Vectoriales y SLA 48-72h */}
+            <ProductGrid
+              category={activeCategory}
+              onSelectSolution={handleSelectSolution}
+            />
 
-          {/* Matriz Técnica de Rendimiento y Arquitectura (Corte Recto 1px) */}
-          <TechnicalSpecs />
+            {/* Ficha Técnica y Matriz de Rendimiento */}
+            <TechnicalSpecs />
 
-          {/* Protocolo de Trabajo en 3 Pasos */}
-          <ProcessSection />
+            {/* Protocolo de Trabajo en 3 Pasos */}
+            <ProcessSection />
 
-          {/* Preguntas Frecuentes / Dudas de Compra */}
-          <FaqSection />
-        </main>
+            {/* Preguntas Frecuentes */}
+            <FaqSection />
+          </main>
+        )}
 
-        {/* Footer */}
+        {/* Footer Unificado */}
         <Footer />
 
-        {/* Carrito Lateral Deslizante (Slide-over Cart Drawer) */}
+        {/* Carrito Lateral Deslizante */}
         <CartDrawer />
 
-        {/* Barra Móvil Sticky Bottom */}
+        {/* Barra Móvil Inferior */}
         <StickyBottomBar
           onOpenConsult={() => setIsConsultOpen(true)}
           onExploreCatalog={handleExploreCatalog}
         />
 
-        {/* Modal de Asesoría Rápida por WhatsApp */}
+        {/* Modal de Asesoría Directa por WhatsApp */}
         <ConsultationModal
           isOpen={isConsultOpen}
           onClose={() => setIsConsultOpen(false)}
-        />
-
-        {/* Modal de Especificaciones Técnicas de Producto */}
-        <SolutionDetailsModal
-          isOpen={!!inspectSolution}
-          onClose={() => setInspectSolution(null)}
-          solution={inspectSolution}
         />
 
       </div>
