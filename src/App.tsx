@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { CartProvider } from './context/CartContext';
 import { AnnouncementTicker } from './components/layout/AnnouncementTicker';
 import { Header } from './components/layout/Header';
 import { HeroBanner } from './components/home/HeroBanner';
@@ -11,7 +10,6 @@ import { ProcessSection } from './components/home/ProcessSection';
 import { FaqSection } from './components/home/FaqSection';
 import { Footer } from './components/layout/Footer';
 import { StickyBottomBar } from './components/layout/StickyBottomBar';
-import { CartDrawer } from './components/cart/CartDrawer';
 import { ConsultationModal } from './components/checkout/ConsultationModal';
 import { LegalModal, LegalTab } from './components/legal/LegalModal';
 import { WebSolution, CategoryId } from './types/solution';
@@ -82,72 +80,67 @@ export default function App() {
   const activeSolution = solutions.find((s) => s.id === selectedSolutionId);
 
   return (
-    <CartProvider>
-      <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-emerald-pine selection:text-white pb-14 md:pb-0">
-        
-        {/* Ticker Infinito Superior */}
-        <AnnouncementTicker />
+    <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-emerald-pine selection:text-white pb-14 md:pb-0">
+      
+      {/* Ticker Infinito Superior */}
+      <AnnouncementTicker />
 
-        {/* Cabecera Brutalista */}
-        <Header onOpenConsult={() => setIsConsultOpen(true)} />
+      {/* Cabecera Brutalista */}
+      <Header onOpenConsult={() => setIsConsultOpen(true)} />
 
-        {/* RENDERIZADO DE SUBPÁGINA O LANDING */}
-        {activeSolution ? (
-          <ServiceDetailPage
-            solution={activeSolution}
-            onBack={handleBackToCatalog}
+      {/* RENDERIZADO DE SUBPÁGINA O LANDING */}
+      {activeSolution ? (
+        <ServiceDetailPage
+          solution={activeSolution}
+          onBack={handleBackToCatalog}
+        />
+      ) : (
+        <main className="flex-1">
+          <HeroBanner
+            onExplore={handleExploreCatalog}
+            onOpenConsult={() => setIsConsultOpen(true)}
           />
-        ) : (
-          <main className="flex-1">
-            <HeroBanner
-              onExplore={handleExploreCatalog}
-              onOpenConsult={() => setIsConsultOpen(true)}
-            />
 
-            <CategoryTabs
-              activeCategory={activeCategory}
-              onSelectCategory={setActiveCategory}
-            />
+          <CategoryTabs
+            activeCategory={activeCategory}
+            onSelectCategory={setActiveCategory}
+          />
 
-            <ProductGrid
-              category={activeCategory}
-              onSelectSolution={handleSelectSolution}
-            />
+          <ProductGrid
+            category={activeCategory}
+            onSelectSolution={handleSelectSolution}
+          />
 
-            <TechnicalSpecs />
+          <TechnicalSpecs />
 
-            <ProcessSection />
+          <ProcessSection />
 
-            <FaqSection />
-          </main>
-        )}
+          <FaqSection />
+        </main>
+      )}
 
-        {/* Footer con Enlaces Legales */}
-        <Footer onOpenLegal={handleOpenLegal} />
+      {/* Footer con Enlaces Legales */}
+      <Footer onOpenLegal={handleOpenLegal} />
 
-        {/* Carrito Lateral Deslizante */}
-        <CartDrawer />
+      {/* Barra Móvil Inferior */}
+      <StickyBottomBar
+        onOpenConsult={() => setIsConsultOpen(true)}
+        onExploreCatalog={handleExploreCatalog}
+      />
 
-        {/* Barra Móvil Inferior */}
-        <StickyBottomBar
-          onOpenConsult={() => setIsConsultOpen(true)}
-          onExploreCatalog={handleExploreCatalog}
-        />
+      {/* Modal de Asesoría Directa por WhatsApp */}
+      <ConsultationModal
+        isOpen={isConsultOpen}
+        onClose={() => setIsConsultOpen(false)}
+      />
 
-        {/* Modal de Asesoría Directa por WhatsApp */}
-        <ConsultationModal
-          isOpen={isConsultOpen}
-          onClose={() => setIsConsultOpen(false)}
-        />
+      {/* Modal de Marco Legal, Términos y Hosting */}
+      <LegalModal
+        isOpen={isLegalOpen}
+        onClose={() => setIsLegalOpen(false)}
+        initialTab={legalTab}
+      />
 
-        {/* Modal de Marco Legal, Términos y Hosting */}
-        <LegalModal
-          isOpen={isLegalOpen}
-          onClose={() => setIsLegalOpen(false)}
-          initialTab={legalTab}
-        />
-
-      </div>
-    </CartProvider>
+    </div>
   );
 }

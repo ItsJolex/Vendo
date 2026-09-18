@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useCart } from '../../context/CartContext';
-import { Menu, X, ShoppingBag, MessageSquare } from 'lucide-react';
+import { Menu, X, MessageSquare } from 'lucide-react';
 
 interface HeaderProps {
   onOpenConsult: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
-  const { itemCount, openCart } = useCart();
   const [leftMenuOpen, setLeftMenuOpen] = useState(false);
 
   return (
@@ -39,22 +37,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
             </a>
           </div>
 
-          {/* Zona Derecha: Asesoría + Contador de Carrito */}
+          {/* Zona Derecha: Asesoría */}
           <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={onOpenConsult}
-              className="btn-neo-silver hidden sm:inline-flex text-xs font-black uppercase tracking-wider px-3.5 py-1.5 font-mono"
+              className="btn-neo-emerald hidden sm:inline-flex text-xs font-black uppercase tracking-wider px-3.5 py-1.5 font-mono"
             >
               [ + ASESORÍA ]
-            </button>
-
-            <button
-              onClick={openCart}
-              className="btn-neo-emerald flex items-center gap-2 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 font-mono"
-              aria-label="Abrir carrito"
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span>CARRITO [ {itemCount} ]</span>
             </button>
           </div>
 
