@@ -119,9 +119,11 @@ export const TechnicalSpecs: React.FC = () => {
                   <td className="p-3 font-bold text-emerald-pine bg-emerald-vibrant/10 border-l-2 border-emerald-vibrant pl-4">{'< 0.8s (Carga instantánea)'}</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold bg-canvas-ice border-r-2 border-silver-steel">Costo de Hosting Mensual</td>
-                  <td className="p-3 text-slate-600 border-r-2 border-silver-steel">$15 a $45 USD/mes obligatorios</td>
-                  <td className="p-3 font-bold text-emerald-pine bg-emerald-vibrant/10 border-l-2 border-emerald-vibrant pl-4">$0 USD (Hosting de alta velocidad incluido)</td>
+                  <td className="p-3 font-bold bg-canvas-ice border-r-2 border-silver-steel">Hosting e Infraestructura</td>
+                  <td className="p-3 text-slate-600 border-r-2 border-silver-steel">$25 a $60 USD/mes + caídas frecuentes en servidores compartidos</td>
+                  <td className="p-3 font-bold text-emerald-pine bg-emerald-vibrant/10 border-l-2 border-emerald-vibrant pl-4">
+                    1er mes $0 (incluido). Luego solo $10 a $13 USD/mes en Vercel Pro (99.9% Uptime)
+                  </td>
                 </tr>
                 <tr>
                   <td className="p-3 font-bold bg-canvas-ice border-r-2 border-silver-steel">Ficha Google Maps</td>

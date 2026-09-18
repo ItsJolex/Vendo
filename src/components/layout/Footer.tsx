@@ -1,8 +1,13 @@
 import React from 'react';
 import { ArrowUp, ShieldCheck, Lock, Cpu } from 'lucide-react';
 import { getWhatsAppUrl } from '../../types/solution';
+import { LegalTab } from '../legal/LegalModal';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenLegal?: (tab?: LegalTab) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -11,10 +16,10 @@ export const Footer: React.FC = () => {
     'PÁGINAS WEB RÁPIDAS',
     'GOOGLE MAPS LOCAL',
     'WHATSAPP BUSINESS',
-    'HOSTING DE ALTA VELOCIDAD',
+    'HOSTING VERCEL PRO ($10-$13/MES)',
     'DISEÑO 100% PARA MÓVIL',
-    'ENTREGA EN 72 HORAS',
-    'CERO COSTOS OCULTOS',
+    'ENTREGA EN 48 A 72 HORAS',
+    'TRANSPARENCIA TOTAL',
     'ATENCIÓN: +58 414-9428999',
   ];
 
@@ -51,13 +56,13 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex flex-wrap items-center gap-4 text-[10px] font-mono text-silver-chrome pt-2">
               <span className="flex items-center gap-1">
-                <Lock className="w-3.5 h-3.5 text-white" /> CERO COSTOS OCULTOS
+                <Lock className="w-3.5 h-3.5 text-white" /> TRANSPARENCIA TOTAL
               </span>
               <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-white" /> HOSTING INCLUIDO
+                <ShieldCheck className="w-3.5 h-3.5 text-white" /> 1ER MES HOSTING INCLUIDO
               </span>
               <span className="flex items-center gap-1 text-emerald-vibrant font-bold">
-                <Cpu className="w-3.5 h-3.5" /> ENTREGA EN 72H
+                <Cpu className="w-3.5 h-3.5" /> SLA: 48-72H
               </span>
             </div>
           </div>
@@ -75,15 +80,43 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contacto Directo */}
+          {/* Contacto Directo & Legal */}
           <div>
             <h4 className="text-xs font-black uppercase tracking-widest text-silver-steel mb-3 font-mono">
-              ATENCIÓN & WHATSAPP //
+              CONTACTO & MARCO LEGAL //
             </h4>
             <p className="text-xs text-silver-chrome mb-3 font-medium font-mono">
-              Directo: +58 414-9428999<br />
+              WhatsApp: +58 414-9428999<br />
               Lunes a Sábado: 8:00 AM - 8:00 PM.
             </p>
+
+            <ul className="space-y-1.5 text-[11px] font-mono text-silver-steel mb-4">
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('terms')}
+                  className="hover:text-white underline transition-colors"
+                >
+                  [+] Términos & Compromiso SLA
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('hosting')}
+                  className="hover:text-white underline transition-colors"
+                >
+                  [+] Política de Hosting ($10-$13/mes)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenLegal?.('privacy')}
+                  className="hover:text-white underline transition-colors"
+                >
+                  [+] Privacidad & Contacto Legal
+                </button>
+              </li>
+            </ul>
+
             <a
               href={whatsappFooterUrl}
               target="_blank"

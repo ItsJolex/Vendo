@@ -40,7 +40,7 @@ export const ProcessSection: React.FC = () => {
             </h2>
           </div>
           <span className="text-xs font-mono text-silver-metallic">
-            CERO RETRASOS // ENTREGA EN 72H
+            CERO RETRASOS // ENTREGA EN 48-72H
           </span>
         </div>
 
@@ -69,10 +69,10 @@ export const ProcessSection: React.FC = () => {
             <ShieldCheck className="w-8 h-8 text-emerald-vibrant flex-shrink-0" />
             <div>
               <h4 className="text-xs sm:text-sm font-black uppercase tracking-widest">
-                GARANTÍA TOTAL // SIN COSTOS OCULTOS
+                GARANTÍA DE VELOCIDAD // PROTOCOLO 48-72H
               </h4>
               <p className="text-[11px] text-silver-chrome font-medium">
-                Todo incluido: hosting de alta velocidad, dominio y configuración. Si algo no te gusta antes del lanzamiento, lo ajustamos hasta que estés 100% satisfecho.
+                1er mes de hosting de alta velocidad incluido, dominio y configuración. A partir del 2do mes, hosting gestionado en Vercel Pro por solo $10 a $13 USD/mes. Ajustamos tu web hasta que estés 100% satisfecho antes de activarla.
               </p>
             </div>
           </div>

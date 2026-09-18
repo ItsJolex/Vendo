@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
                   className="py-1 border-b border-silver-steel hover:pl-2 transition-all flex items-center justify-between text-emerald-pine"
                 >
                   <span>Protocolo de Entrega</span>
-                  <span className="text-xs text-silver-metallic">[72H]</span>
+                  <span className="text-xs text-silver-metallic">[48-72H]</span>
                 </a>
                 <a
                   href="#faq"

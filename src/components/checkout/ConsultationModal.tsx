@@ -39,7 +39,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
           </div>
 
           <p className="text-xs text-slate-600 mb-4 font-medium leading-relaxed">
-            Canal directo. Analizamos tu negocio, te recomendamos el plan ideal y te damos fecha de entrega en 72h.
+            Canal directo. Analizamos tu negocio, te recomendamos la estructura ideal y te garantizamos entrega en 48 a 72 horas.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-3">

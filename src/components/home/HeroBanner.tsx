@@ -114,7 +114,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExplore, onOpenConsult
                 TIEMPO DE ENTREGA
               </span>
               <span className="text-xl font-black tracking-wider text-emerald-pine font-mono block">
-                72 HORAS
+                48 - 72 HORAS
               </span>
               <span className="block text-[11px] text-slate-600 uppercase mt-2 font-bold font-mono">
                 • Tu web lista y vendiendo
@@ -127,10 +127,10 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExplore, onOpenConsult
                 TRANSPARENCIA TOTAL
               </span>
               <span className="text-xl font-black tracking-wider text-emerald-pine font-mono block">
-                TODO INCLUIDO
+                INFRAESTRUCTURA
               </span>
               <span className="block text-[11px] text-slate-600 uppercase mt-2 font-bold font-mono">
-                • Hosting + Cero costos ocultos
+                • 1er Mes de Hosting Incluido (Luego $10-$13/mes)
               </span>
             </div>
 

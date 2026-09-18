@@ -13,6 +13,7 @@ import { Footer } from './components/layout/Footer';
 import { StickyBottomBar } from './components/layout/StickyBottomBar';
 import { CartDrawer } from './components/cart/CartDrawer';
 import { ConsultationModal } from './components/checkout/ConsultationModal';
+import { LegalModal, LegalTab } from './components/legal/LegalModal';
 import { WebSolution, CategoryId } from './types/solution';
 import { solutions } from './data/solutions';
 
@@ -26,13 +27,24 @@ export default function App() {
     return null;
   });
   const [isConsultOpen, setIsConsultOpen] = useState(false);
+  const [isLegalOpen, setIsLegalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState<LegalTab>('terms');
 
-  // Sincronización del hash de la URL para historial del navegador (Atrás / Adelante)
+  // Sincronización de URL hash para soporte de botón Atrás del navegador
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#/servicio/')) {
         setSelectedSolutionId(hash.replace('#/servicio/', ''));
+      } else if (hash === '#/terminos') {
+        setLegalTab('terms');
+        setIsLegalOpen(true);
+      } else if (hash === '#/hosting') {
+        setLegalTab('hosting');
+        setIsLegalOpen(true);
+      } else if (hash === '#/privacidad') {
+        setLegalTab('privacy');
+        setIsLegalOpen(true);
       } else {
         setSelectedSolutionId(null);
       }
@@ -62,6 +74,11 @@ export default function App() {
     }
   };
 
+  const handleOpenLegal = (tab: LegalTab = 'terms') => {
+    setLegalTab(tab);
+    setIsLegalOpen(true);
+  };
+
   const activeSolution = solutions.find((s) => s.id === selectedSolutionId);
 
   return (
@@ -74,7 +91,7 @@ export default function App() {
         {/* Cabecera Brutalista */}
         <Header onOpenConsult={() => setIsConsultOpen(true)} />
 
-        {/* CUERPO: RENDERIZADO CONDICIONAL DE SUBPÁGINA O LANDING */}
+        {/* RENDERIZADO DE SUBPÁGINA O LANDING */}
         {activeSolution ? (
           <ServiceDetailPage
             solution={activeSolution}
@@ -82,37 +99,31 @@ export default function App() {
           />
         ) : (
           <main className="flex-1">
-            {/* Hero Banner VÉNDO 2.0 */}
             <HeroBanner
               onExplore={handleExploreCatalog}
               onOpenConsult={() => setIsConsultOpen(true)}
             />
 
-            {/* Pestañas de Filtro del Catálogo */}
             <CategoryTabs
               activeCategory={activeCategory}
               onSelectCategory={setActiveCategory}
             />
 
-            {/* Grilla de Servicios con Ilustraciones Vectoriales y SLA 48-72h */}
             <ProductGrid
               category={activeCategory}
               onSelectSolution={handleSelectSolution}
             />
 
-            {/* Ficha Técnica y Matriz de Rendimiento */}
             <TechnicalSpecs />
 
-            {/* Protocolo de Trabajo en 3 Pasos */}
             <ProcessSection />
 
-            {/* Preguntas Frecuentes */}
             <FaqSection />
           </main>
         )}
 
-        {/* Footer Unificado */}
-        <Footer />
+        {/* Footer con Enlaces Legales */}
+        <Footer onOpenLegal={handleOpenLegal} />
 
         {/* Carrito Lateral Deslizante */}
         <CartDrawer />
@@ -127,6 +138,13 @@ export default function App() {
         <ConsultationModal
           isOpen={isConsultOpen}
           onClose={() => setIsConsultOpen(false)}
+        />
+
+        {/* Modal de Marco Legal, Términos y Hosting */}
+        <LegalModal
+          isOpen={isLegalOpen}
+          onClose={() => setIsLegalOpen(false)}
+          initialTab={legalTab}
         />
 
       </div>

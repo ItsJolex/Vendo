@@ -193,17 +193,17 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           </div>
         </section>
 
-        {/* BLOQUE 3: MODELO DE COTIZACIÓN TRANSPARENTE */}
+        {/* BLOQUE 3: MODELO DE INVERSIÓN & HOSTING TRANSPARENTE */}
         <section className="bg-emerald-pine text-white p-6 sm:p-8 border-2 border-emerald-pine shadow-neo-pine">
           <div className="max-w-3xl">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-vibrant block mb-1">
-              [ COTIZACIÓN TRANSPARENTE // SIN COSTOS OCULTOS ]
+              [ COTIZACIÓN TRANSPARENTE // INFRAESTRUCTURA REAL ]
             </span>
             <h3 className="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight mb-3">
-              ¿CÓMO DETERMINAMOS EL PRESUPUESTO?
+              ¿CÓMO FUNCIONA LA INVERSIÓN Y EL HOSTING?
             </h3>
             <p className="text-xs sm:text-sm text-silver-chrome leading-relaxed mb-6 font-medium">
-              No creemos en tarifas fijas infladas ni en cobrarte mensualidades obligatorias por una web que es tuya. Evaluamos el tipo de negocio, la cantidad de productos o servicios que necesitas mostrar y te entregamos un presupuesto exacto y accesible mediante una asesoría directa por WhatsApp en menos de 15 minutos.
+              No cobramos tarifas fijas infladas. Evaluamos el tamaño y módulos que necesita tu negocio y te entregamos un presupuesto exacto de desarrollo en minutos por WhatsApp. El desarrollo incluye tu **primer mes (30 días) de hosting de alta velocidad completamente gratis**. A partir del segundo mes, el hosting gestionado y soporte en servidores Vercel Pro es de solo **$10 a $13 USD al mes**, asegurando que tu página cargue en menos de 0.8s y nunca se caiga.
             </p>
 
             <div className="flex flex-wrap gap-4 text-xs font-mono text-silver-steel mb-6">
@@ -213,7 +213,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               </span>
               <span className="flex items-center gap-1.5">
                 <Zap className="w-4 h-4 text-emerald-vibrant" />
-                Hosting incluido
+                1er Mes Hosting $0 (Luego $10-$13/mes)
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-emerald-vibrant" />
@@ -225,10 +225,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-emerald-pine hover:bg-canvas-ice px-6 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider border-2 border-white shadow-[4px_4px_0px_#187E5F] transition-transform active:translate-x-0.5 active:translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-white text-emerald-pine hover:bg-canvas-ice px-6 py-3.5 text-xs sm:text-sm font-black uppercase tracking-wider border-2 border-white shadow-[4px_4px_0px_#187E5F] transition-transform active:translate-x-0.5 active:translate-y-0.5 font-mono"
             >
               <MessageSquare className="w-4 h-4 fill-current" />
-              <span>RECIBIR ASESORÍA Y COTIZACIÓN AHORA MISMO →</span>
+              <span>RECIBIR ASESORÍA Y COTIZACIÓN POR WHATSAPP →</span>
             </a>
           </div>
         </section>

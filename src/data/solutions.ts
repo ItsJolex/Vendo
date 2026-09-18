@@ -53,7 +53,7 @@ export const solutions: WebSolution[] = [
       'Diseño ultra-rápido optimizado 100% para celulares',
       'Botón directo a tu WhatsApp con mensaje pre-cargado',
       'Integración y enlace a tu perfil de Google Maps',
-      'Hosting de alta velocidad incluido (0 costos ocultos)',
+      '1er mes de hosting de alta velocidad incluido ($10 a $13 USD/mes posterior)',
       'Sin mensualidades obligatorias ni comisiones por ventas',
     ],
     idealFor: 'Restaurantes, barberías, consultorios, talleres, tiendas físicas y profesionales que buscan más clientes en su ciudad.',
@@ -61,7 +61,7 @@ export const solutions: WebSolution[] = [
       'Página web completa publicada y funcionando en 48-72h',
       'Adaptación móvil perfecta (diseño tipo app)',
       'Enlace a Google Maps y llamada directa',
-      'Hosting de alta velocidad configurado y listo',
+      '1er mes de hosting de alta velocidad configurado y cubierto',
     ],
     deliverablesSections: [
       {
@@ -86,7 +86,7 @@ export const solutions: WebSolution[] = [
         title: 'Infraestructura & Propiedad',
         items: [
           'Dominio conectado con protocolo de seguridad SSL (HTTPS)',
-          'Alojamiento web en servidores de distribución global',
+          'Alojamiento web en Vercel Pro CDN (1er mes incluido, luego $10-$13/mes)',
           '100% propiedad del cliente (sin alquileres de plataforma ni ataduras)',
           'Código limpio, indexable por Google para posicionamiento local',
         ],
@@ -132,7 +132,7 @@ export const solutions: WebSolution[] = [
       'Catálogo digital interactivo publicado en 48-72h',
       'Sistema de carrito de compras sin registro obligatorio para el cliente',
       'Generador de mensaje detallado para WhatsApp (items, cantidades y total)',
-      'Hosting ultra-rápido incluido',
+      '1er mes de hosting ultra-rápido incluido ($10-$13 USD/mes posterior)',
     ],
     deliverablesSections: [
       {
@@ -227,7 +227,7 @@ export const solutions: WebSolution[] = [
         title: 'Seguridad & Infraestructura Robusta',
         items: [
           'Certificado SSL de cifrado bancario para máxima confiabilidad',
-          'Servidores globales con 99.9% de tiempo de actividad garantizado',
+          'Servidores Vercel Pro con 99.9% de tiempo de actividad (1er mes cubierto)',
           'Compatibilidad completa con pantallas de escritorio, portátiles y celulares',
           'Optimización de títulos y metadatos para indexación en Google',
         ],
@@ -272,7 +272,7 @@ export const solutions: WebSolution[] = [
       'Landing page de venta rápida lista para recibir pauta en 48-72h',
       'Píxeles y eventos de seguimiento configurados',
       'Diseño ultra-ligero enfocado en celulares (origen del 90% del tráfico de ads)',
-      'Hosting de tráfico ilimitado',
+      '1er mes de hosting de tráfico ilimitado incluido',
     ],
     deliverablesSections: [
       {
