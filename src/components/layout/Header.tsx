@@ -28,9 +28,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
             </span>
           </div>
 
-          {/* Zona Central: Logotipo Brutalista */}
+          {/* Zona Central: Logotipo Brutalista con Isotipo */}
           <div className="text-center">
-            <a href="#top" className="inline-block group">
+            <a href="#top" className="inline-flex items-center gap-2 group">
+              {/* Isotipo SVG Oficial */}
+              <div className="w-7 h-7 bg-emerald-pine border-2 border-emerald-pine flex items-center justify-center shadow-neo-pine group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                <svg className="w-5 h-5" viewBox="0 0 100 100" fill="none">
+                  <path d="M22 28 L36 28 L50 68 L36 68 Z" fill="#FFFFFF" />
+                  <path d="M44 68 L68 28 L56 28 L38 68 Z" fill="#187E5F" />
+                  <polygon points="68,16 82,34 54,34" fill="#187E5F" />
+                </svg>
+              </div>
               <h1 className="text-2xl sm:text-3xl font-black tracking-[0.2em] font-display uppercase leading-none text-emerald-pine">
                 VÉNDO<span className="text-emerald-vibrant">®</span>
               </h1>
