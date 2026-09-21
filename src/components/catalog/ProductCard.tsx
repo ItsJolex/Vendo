@@ -86,23 +86,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onSelectSolu
           </div>
 
           {/* Botones de Acción */}
-          <div className="grid grid-cols-5 gap-1.5">
-            {/* Botón Principal: Ver Subpágina con Alcance Completo */}
+          <div className="flex items-center gap-2">
             <button
               onClick={() => onSelectSolution(solution)}
-              className="col-span-4 h-10 btn-neo-emerald text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-1.5"
+              className="flex-1 h-10 btn-neo-emerald text-[10px] sm:text-[11px] font-black uppercase tracking-wider flex items-center justify-center gap-1.5 px-2"
             >
-              <span>[ VER DETALLES Y ALCANCE ]</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>[ VER DETALLES ]</span>
+              <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
             </button>
 
-            {/* Botón Secundario: Asesoría Directa a WhatsApp */}
             <a
               href={getServiceConsultationUrl(solution.name, solution.sku)}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-1 h-10 border-2 border-emerald-pine bg-white hover:bg-canvas-ice text-emerald-pine flex items-center justify-center transition-colors shadow-neo-pine"
-              title="Solicitar asesoría rápida por WhatsApp"
+              className="w-10 h-10 flex-shrink-0 btn-neo-silver flex items-center justify-center"
+              title="Asesoría directa por WhatsApp"
               aria-label="Asesoría por WhatsApp"
             >
               <MessageSquare className="w-4 h-4 text-emerald-pine" />

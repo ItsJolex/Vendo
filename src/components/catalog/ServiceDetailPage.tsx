@@ -22,8 +22,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   return (
     <div className="min-h-screen bg-canvas-ice text-black text-left pb-16">
       
-      {/* BARRA SUPERIOR DE SUBPÁGINA (STICKY BREADCRUMB) */}
-      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b-2 border-emerald-pine px-4 sm:px-8 py-3">
+      {/* BARRA SUPERIOR DE SUBPÁGINA (STICKY BREADCRUMB) - Debajo del Header global (60px) */}
+      <div className="sticky top-[60px] z-30 bg-white/95 backdrop-blur-sm border-b-2 border-emerald-pine px-4 sm:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <button
             onClick={onBack}
@@ -83,7 +83,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-neo-emerald h-12 px-6 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-neo-pine"
+                className="btn-neo-emerald min-h-[48px] py-2.5 h-auto text-center leading-snug px-6 text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-neo-pine"
               >
                 <MessageSquare className="w-4 h-4 fill-current" />
                 <span>SOLICITAR ASESORÍA Y COTIZACIÓN POR WHATSAPP →</span>
@@ -91,7 +91,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
 
               <button
                 onClick={onBack}
-                className="btn-neo-silver h-12 px-5 text-xs font-black uppercase tracking-wider flex items-center justify-center"
+                className="btn-neo-silver min-h-[48px] py-2.5 h-auto text-center leading-snug px-5 text-xs font-black uppercase tracking-wider flex items-center justify-center"
               >
                 EXPLORAR OTROS PLANES
               </button>
@@ -264,7 +264,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
       </main>
 
       {/* CTA FIJO EN LA PARTE INFERIOR PARA MÓVILES */}
-      <div className="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t-2 border-emerald-pine p-3 shadow-neo-pine">
+      <div className="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t-2 border-emerald-pine p-3 shadow-neo-pine pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
         <a
           href={whatsappUrl}
           target="_blank"

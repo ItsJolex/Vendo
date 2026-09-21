@@ -17,19 +17,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setLeftMenuOpen(true)}
-              className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest hover:opacity-70 transition-opacity"
+              className="p-2.5 -ml-2 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest hover:opacity-70 transition-opacity"
               aria-label="Abrir menú"
             >
               <Menu className="w-4 h-4 stroke-[2.5]" />
               <span className="hidden sm:inline">MENÚ</span>
             </button>
-            <span className="text-[11px] font-mono text-silver-metallic hidden md:inline">
+            <span className="text-[11px] font-mono text-slate-600 hidden md:inline">
               [ USD / LATAM ]
             </span>
           </div>
 
-          {/* Zona Central: Logotipo Brutalista con Isotipo */}
-          <div className="text-center">
+          {/* Zona Central: Logotipo Brutalista con Isotipo - Centrado con ghost spacer */}
+          <div className="text-center flex items-center justify-center gap-2">
+            <div className="w-8 sm:hidden" /> {/* Ghost spacer para balancear menú izquierda */}
             <a href="#top" className="inline-flex items-center gap-2 group">
               {/* Isotipo SVG Oficial */}
               <div className="w-7 h-7 bg-emerald-pine border-2 border-emerald-pine flex items-center justify-center shadow-neo-pine group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
@@ -65,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
             className="fixed inset-0 bg-emerald-pine/70 transition-opacity"
             onClick={() => setLeftMenuOpen(false)}
           />
-          <div className="relative w-full max-w-xs bg-canvas-card h-full p-6 flex flex-col justify-between z-10 border-r-2 border-emerald-pine shadow-neo-pine animate-in slide-in-from-left duration-200">
+          <div className="relative w-full max-w-xs bg-canvas-card h-full p-6 flex flex-col justify-between z-10 border-r-2 border-emerald-pine shadow-neo-pine transition-transform duration-200">
             <div>
               <div className="flex items-center justify-between pb-4 border-b-2 border-emerald-pine mb-6">
                 <span className="text-xs font-black uppercase tracking-widest text-emerald-pine">
@@ -82,35 +83,67 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
               <nav className="flex flex-col space-y-4 text-sm font-extrabold uppercase tracking-wider">
                 <a
                   href="#catalogo"
-                  onClick={() => setLeftMenuOpen(false)}
+                  onClick={() => {
+                    setLeftMenuOpen(false);
+                    if (window.location.hash.startsWith('#/servicio/')) {
+                      window.location.hash = '';
+                      setTimeout(() => {
+                        document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
                   className="py-1 border-b border-silver-steel hover:pl-2 transition-all flex items-center justify-between text-emerald-pine"
                 >
                   <span>Catálogo de Soluciones</span>
-                  <span className="text-xs text-silver-metallic">[04]</span>
+                  <span className="text-xs text-slate-600">[04]</span>
                 </a>
                 <a
                   href="#especificaciones"
-                  onClick={() => setLeftMenuOpen(false)}
+                  onClick={() => {
+                    setLeftMenuOpen(false);
+                    if (window.location.hash.startsWith('#/servicio/')) {
+                      window.location.hash = '';
+                      setTimeout(() => {
+                        document.getElementById('especificaciones')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
                   className="py-1 border-b border-silver-steel hover:pl-2 transition-all flex items-center justify-between text-emerald-pine"
                 >
                   <span>Ficha Técnica & Velocidad</span>
-                  <span className="text-xs text-silver-metallic">[0.8s]</span>
+                  <span className="text-xs text-slate-600">[0.8s]</span>
                 </a>
                 <a
                   href="#proceso"
-                  onClick={() => setLeftMenuOpen(false)}
+                  onClick={() => {
+                    setLeftMenuOpen(false);
+                    if (window.location.hash.startsWith('#/servicio/')) {
+                      window.location.hash = '';
+                      setTimeout(() => {
+                        document.getElementById('proceso')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
                   className="py-1 border-b border-silver-steel hover:pl-2 transition-all flex items-center justify-between text-emerald-pine"
                 >
                   <span>Protocolo de Entrega</span>
-                  <span className="text-xs text-silver-metallic">[48-72H]</span>
+                  <span className="text-xs text-slate-600">[48-72H]</span>
                 </a>
                 <a
                   href="#faq"
-                  onClick={() => setLeftMenuOpen(false)}
+                  onClick={() => {
+                    setLeftMenuOpen(false);
+                    if (window.location.hash.startsWith('#/servicio/')) {
+                      window.location.hash = '';
+                      setTimeout(() => {
+                        document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
                   className="py-1 border-b border-silver-steel hover:pl-2 transition-all flex items-center justify-between text-emerald-pine"
                 >
                   <span>Garantía & Preguntas</span>
-                  <span className="text-xs text-silver-metallic">[FAQ]</span>
+                  <span className="text-xs text-slate-600">[FAQ]</span>
                 </a>
               </nav>
             </div>
@@ -126,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsult }) => {
                 <MessageSquare className="w-4 h-4" />
                 <span>INICIAR BRIEF TÉCNICO</span>
               </button>
-              <p className="text-[10px] font-mono text-silver-metallic text-center uppercase">
+              <p className="text-[10px] font-mono text-slate-600 text-center uppercase">
                 ESTRUCTURA DE ALTA CONVERSIÓN
               </p>
             </div>

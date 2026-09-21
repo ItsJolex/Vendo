@@ -45,7 +45,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
         </div>
 
         {/* Indicador de inventario a la derecha */}
-        <div className="hidden md:flex items-center gap-2 text-[11px] font-mono uppercase text-silver-metallic flex-shrink-0">
+        <div className="hidden md:flex items-center gap-2 text-[11px] font-mono uppercase text-slate-600 flex-shrink-0">
           <span className="w-1.5 h-1.5 bg-emerald-vibrant inline-block" />
           <span>CATÁLOGO TRANSACCIONAL 2026</span>
         </div>

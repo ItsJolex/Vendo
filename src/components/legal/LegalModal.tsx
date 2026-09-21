@@ -244,7 +244,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 <span>CONSULTAR AL EQUIPO LEGAL</span>
               </a>
               <button
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  history.replaceState(null, '', window.location.pathname);
+                }}
                 className="btn-neo-silver px-4 py-2 text-xs font-black uppercase tracking-wider font-mono"
               >
                 ENTENDIDO

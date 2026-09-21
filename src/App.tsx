@@ -25,7 +25,10 @@ export default function App() {
     return null;
   });
   const [isConsultOpen, setIsConsultOpen] = useState(false);
-  const [isLegalOpen, setIsLegalOpen] = useState(false);
+  const [isLegalOpen, setIsLegalOpen] = useState(() => {
+    const hash = window.location.hash;
+    return hash === '#/terminos' || hash === '#/hosting' || hash === '#/privacidad' || hash === '#/ip';
+  });
   const [legalTab, setLegalTab] = useState<LegalTab>('terms');
 
   // Sincronización de URL hash para soporte de botón Atrás del navegador
@@ -42,6 +45,9 @@ export default function App() {
         setIsLegalOpen(true);
       } else if (hash === '#/privacidad') {
         setLegalTab('privacy');
+        setIsLegalOpen(true);
+      } else if (hash === '#/ip') {
+        setLegalTab('ip');
         setIsLegalOpen(true);
       } else {
         setSelectedSolutionId(null);
@@ -80,7 +86,7 @@ export default function App() {
   const activeSolution = solutions.find((s) => s.id === selectedSolutionId);
 
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-emerald-pine selection:text-white pb-14 md:pb-0">
+    <div id="top" className="min-h-screen flex flex-col bg-white text-black antialiased selection:bg-emerald-pine selection:text-white pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
       
       {/* Ticker Infinito Superior */}
       <AnnouncementTicker />
@@ -122,11 +128,13 @@ export default function App() {
       {/* Footer con Enlaces Legales */}
       <Footer onOpenLegal={handleOpenLegal} />
 
-      {/* Barra Móvil Inferior */}
-      <StickyBottomBar
-        onOpenConsult={() => setIsConsultOpen(true)}
-        onExploreCatalog={handleExploreCatalog}
-      />
+      {/* Barra Móvil Inferior: Solo en catálogo principal */}
+      {!activeSolution && (
+        <StickyBottomBar
+          onOpenConsult={() => setIsConsultOpen(true)}
+          onExploreCatalog={handleExploreCatalog}
+        />
+      )}
 
       {/* Modal de Asesoría Directa por WhatsApp */}
       <ConsultationModal
@@ -137,7 +145,10 @@ export default function App() {
       {/* Modal de Marco Legal, Términos y Hosting */}
       <LegalModal
         isOpen={isLegalOpen}
-        onClose={() => setIsLegalOpen(false)}
+        onClose={() => {
+          setIsLegalOpen(false);
+          history.replaceState(null, '', window.location.pathname);
+        }}
         initialTab={legalTab}
       />
 

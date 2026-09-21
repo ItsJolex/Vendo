@@ -9,14 +9,14 @@ export const TechnicalSpecs: React.FC = () => {
         {/* Encabezado */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b-2 border-emerald-pine gap-4">
           <div>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-silver-metallic block mb-1">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-600 block mb-1">
               [ FICHA TÉCNICA // AUDITORÍA DE RENDIMIENTO ]
             </span>
             <h2 className="text-2xl sm:text-4xl font-black font-display uppercase tracking-tight text-emerald-pine">
               INGENIERÍA WEB SIN COMPLICACIONES
             </h2>
           </div>
-          <span className="text-xs font-mono text-silver-metallic">
+          <span className="text-xs font-mono text-slate-600">
             ESTÁNDAR VÉNDO 2026
           </span>
         </div>
@@ -28,7 +28,7 @@ export const TechnicalSpecs: React.FC = () => {
           <div className="p-6 sm:p-8 flex flex-col justify-between text-left">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-black uppercase text-silver-metallic">
+                <span className="text-xs font-mono font-black uppercase text-slate-600">
                   // MÓDULO 01
                 </span>
                 <Terminal className="w-4 h-4 text-emerald-pine" />
@@ -42,7 +42,7 @@ export const TechnicalSpecs: React.FC = () => {
             </div>
             <div className="border-t-2 border-silver-steel pt-4 font-mono text-xs text-emerald-pine">
               <span className="block font-bold">LIGHTHOUSE SCORE: 99/100</span>
-              <span className="text-[10px] text-silver-metallic">CERO REBOTES // MÁXIMA VELOCIDAD</span>
+              <span className="text-[10px] text-slate-600">CERO REBOTES // MÁXIMA VELOCIDAD</span>
             </div>
           </div>
 
@@ -50,7 +50,7 @@ export const TechnicalSpecs: React.FC = () => {
           <div className="p-6 sm:p-8 flex flex-col justify-between text-left bg-canvas-ice">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-black uppercase text-silver-metallic">
+                <span className="text-xs font-mono font-black uppercase text-slate-600">
                   // MÓDULO 02
                 </span>
                 <Smartphone className="w-4 h-4 text-emerald-pine" />
@@ -64,7 +64,7 @@ export const TechnicalSpecs: React.FC = () => {
             </div>
             <div className="border-t-2 border-silver-steel pt-4 font-mono text-xs text-emerald-pine">
               <span className="block font-bold">RESPUESTA TÁCTIL INMEDIATA</span>
-              <span className="text-[10px] text-silver-metallic">DISEÑO ADAPTADO A TU CLIENTE LOCAL</span>
+              <span className="text-[10px] text-slate-600">DISEÑO ADAPTADO A TU CLIENTE LOCAL</span>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export const TechnicalSpecs: React.FC = () => {
           <div className="p-6 sm:p-8 flex flex-col justify-between text-left">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-black uppercase text-silver-metallic">
+                <span className="text-xs font-mono font-black uppercase text-slate-600">
                   // MÓDULO 03
                 </span>
                 <ShoppingBag className="w-4 h-4 text-emerald-pine" />
@@ -86,7 +86,7 @@ export const TechnicalSpecs: React.FC = () => {
             </div>
             <div className="border-t-2 border-silver-steel pt-4 font-mono text-xs text-emerald-pine">
               <span className="block font-bold">CONVERSIÓN DIRECTA</span>
-              <span className="text-[10px] text-silver-metallic">CERO COMISIONES DE PLATAFORMAS</span>
+              <span className="text-[10px] text-slate-600">CERO COMISIONES DE PLATAFORMAS</span>
             </div>
           </div>
 

@@ -33,7 +33,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                 ASESORÍA DIRECTA // WHATSAPP
               </h3>
             </div>
-            <button onClick={onClose} className="p-1 hover:bg-emerald-pine hover:text-white transition-colors">
+            <button onClick={onClose} className="min-w-[40px] min-h-[40px] flex items-center justify-center hover:bg-emerald-pine hover:text-white transition-colors">
               <X className="w-5 h-5 text-emerald-pine" />
             </button>
           </div>
@@ -53,7 +53,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                 placeholder="NOMBRE COMPLETO"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full h-10 px-3 border-2 border-emerald-pine text-xs font-mono focus:outline-none bg-white text-emerald-pine"
+                className="w-full h-10 px-3 border-2 border-emerald-pine text-base sm:text-xs font-mono focus:outline-none bg-white text-emerald-pine"
               />
             </div>
 
@@ -67,7 +67,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                 placeholder="EJ. RESTAURANTE / CONSULTORIO / TIENDA"
                 value={business}
                 onChange={(e) => setBusiness(e.target.value)}
-                className="w-full h-10 px-3 border-2 border-emerald-pine text-xs font-mono focus:outline-none bg-white text-emerald-pine"
+                className="w-full h-10 px-3 border-2 border-emerald-pine text-base sm:text-xs font-mono focus:outline-none bg-white text-emerald-pine"
               />
             </div>
 
@@ -78,7 +78,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               <select
                 value={need}
                 onChange={(e) => setNeed(e.target.value)}
-                className="w-full h-10 px-3 border-2 border-emerald-pine text-xs font-mono bg-white text-emerald-pine focus:outline-none"
+                className="w-full h-10 px-3 border-2 border-emerald-pine text-base sm:text-xs font-mono bg-white text-emerald-pine focus:outline-none"
               >
                 <option value="Aparecer en Google Maps y búsqueda local">APARECER EN GOOGLE MAPS Y BÚSQUEDA LOCAL</option>
                 <option value="Página web rápida para mi negocio">PÁGINA WEB RÁPIDA PARA MI NEGOCIO</option>

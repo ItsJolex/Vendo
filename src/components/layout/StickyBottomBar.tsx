@@ -11,14 +11,14 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
   onExploreCatalog,
 }) => {
   return (
-    <aside aria-label="Acciones móviles" className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-emerald-pine p-2.5 shadow-neo-pine-lg">
+    <aside aria-label="Acciones móviles" className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-emerald-pine p-2.5 shadow-neo-pine-lg pb-[calc(0.625rem+env(safe-area-inset-bottom))]">
       <div className="flex items-center justify-between gap-2 max-w-md mx-auto">
         <div className="flex flex-col text-left">
           <span className="text-[9px] font-mono font-bold uppercase text-emerald-vibrant">
             [ 1ER MES HOSTING INCLUIDO ]
           </span>
           <span className="text-xs font-black font-mono text-emerald-pine">
-            DESDE $49 USD
+            COTIZACIÓN A MEDIDA
           </span>
         </div>
 
@@ -33,7 +33,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
 
           <button
             onClick={onExploreCatalog}
-            className="btn-neo-terracotta h-9 px-4 text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5"
+            className="btn-neo-emerald h-9 px-4 text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5"
           >
             <span>CATÁLOGO</span>
             <ArrowDown className="w-3.5 h-3.5" />
