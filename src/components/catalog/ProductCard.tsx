@@ -96,7 +96,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onSelectSolu
             </button>
 
             <a
-              href={getServiceConsultationUrl(solution.name, solution.sku)}
+              href={getServiceConsultationUrl(solution.name)}
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex-shrink-0 btn-neo-silver flex items-center justify-center"

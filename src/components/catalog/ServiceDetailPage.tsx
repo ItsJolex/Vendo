@@ -17,7 +17,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [solution.id]);
 
-  const whatsappUrl = getServiceConsultationUrl(solution.name, solution.sku);
+  const whatsappUrl = getServiceConsultationUrl(solution.name);
 
   return (
     <div className="min-h-screen bg-canvas-ice text-black text-left pb-16">

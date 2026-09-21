@@ -6,8 +6,8 @@ export const getWhatsAppUrl = (text: string): string => {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
-export const getServiceConsultationUrl = (serviceName: string, sku?: string): string => {
-  const text = `Hola VÉNDO, quiero recibir asesoría y una cotización personalizada para el servicio [${serviceName}${sku ? ` - ${sku}` : ''}]. Mi negocio es: `;
+export const getServiceConsultationUrl = (serviceName: string): string => {
+  const text = `¡Hola equipo VÉNDO! 🚀\nQuiero recibir asesoría y una cotización personalizada para el servicio: *[${serviceName}]*.\n\nMis datos para la cotización:\n• Mi nombre: \n• Nombre de mi marca o negocio: \n• ¿Qué producto o servicio ofrezco?: `;
   return getWhatsAppUrl(text);
 };
 
