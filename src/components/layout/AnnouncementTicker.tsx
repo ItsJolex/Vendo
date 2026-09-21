@@ -15,7 +15,7 @@ export const AnnouncementTicker: React.FC = () => {
         {[...messages, ...messages, ...messages, ...messages].map((msg, i) => (
           <span key={i} className="mx-6 flex items-center gap-4">
             <span className="text-white tracking-wider">{msg}</span>
-            <span className="text-emerald-vibrant font-black">✦</span>
+            <span className={`font-black ${i % 2 === 0 ? 'text-coral' : 'text-emerald-vibrant'}`}>✦</span>
           </span>
         ))}
       </div>

@@ -15,8 +15,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ solution, onSelectSolu
       {/* Contenedor Superior: Badges y SLA */}
       <div className="flex items-center justify-between p-2 bg-canvas-ice border-b-2 border-emerald-pine text-[9px] font-mono">
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 bg-emerald-vibrant inline-block" />
+          <span className={`w-2 h-2 inline-block ${solution.popular ? 'bg-coral' : 'bg-emerald-vibrant'}`} />
           <span className="font-bold text-emerald-pine">{solution.sku}</span>
+          {solution.popular && (
+            <span className="badge-coral px-1.5 py-0.5 text-[8px] ml-1">
+              [ POPULAR ]
+            </span>
+          )}
         </div>
         <span className="bg-white border border-emerald-pine px-1.5 py-0.5 font-bold text-emerald-pine">
           [ SLA: {solution.deliveryDays} ]

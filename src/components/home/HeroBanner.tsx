@@ -28,7 +28,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExplore, onOpenConsult
             href={whatsappHeroUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-vibrant bg-white px-2 py-0.5 font-black hover:bg-slate-100 transition-colors"
+            className="text-white bg-coral px-2 py-0.5 font-black hover:bg-coral-hover transition-colors"
           >
             [ WHATSAPP DISPONIBLE ]
           </a>
@@ -43,14 +43,14 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExplore, onOpenConsult
           
           {/* Badge superior estilo Sticker */}
           <div className="inline-flex items-center gap-2 border-2 border-emerald-pine bg-white px-3.5 py-1 text-[11px] font-mono uppercase tracking-widest text-emerald-pine mb-8 shadow-neo-pine -rotate-1">
-            <span className="w-2 h-2 bg-emerald-vibrant inline-block animate-pulse" />
+            <span className="w-2 h-2 bg-coral inline-block animate-pulse" />
             <span className="font-bold">AGENCIA DE CRECIMIENTO DIGITAL LOCAL</span>
           </div>
 
           {/* Titular Monumental */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display uppercase tracking-tight leading-[0.92] max-w-5xl mb-6 text-emerald-pine">
             VÉNDO, HAZ QUE TE ENCUENTREN, <br />
-            <span className="text-emerald-deep underline decoration-emerald-vibrant decoration-8 underline-offset-8">
+            <span className="text-emerald-deep underline decoration-coral decoration-8 underline-offset-8">
               HAZ QUE TE COMPREN
             </span>
           </h1>
@@ -64,7 +64,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExplore, onOpenConsult
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-16">
             <button
               onClick={onExplore}
-              className="btn-neo-emerald h-14 px-8 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2"
+              className="btn-neo-coral h-14 px-8 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2"
             >
               <span>VER PLANES DISPONIBLES</span>
               <ArrowDown className="w-4 h-4" />

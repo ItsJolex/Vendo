@@ -86,3 +86,33 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
+/* Botón Accent Coral con Clic Mecánico */
+.btn-neo-coral {
+  background-color: #FF4F1F;
+  color: #FFFFFF;
+  border: 2px solid #00381F;
+  box-shadow: 4px 4px 0px 0px #00381F;
+  transition: transform 100ms ease, box-shadow 100ms ease, background-color 100ms ease;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-neo-coral:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #00381F;
+  background-color: #E03E12;
+}
+.btn-neo-coral:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #00381F;
+}
+
+/* Badge Coral Accent */
+.badge-coral {
+  background-color: #FF4F1F;
+  color: #FFFFFF;
+  border: 2px solid #00381F;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+}

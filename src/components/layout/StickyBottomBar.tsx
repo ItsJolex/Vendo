@@ -33,7 +33,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({
 
           <button
             onClick={onExploreCatalog}
-            className="btn-neo-emerald h-9 px-4 text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5"
+            className="btn-neo-coral h-9 px-4 text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5"
           >
             <span>CATÁLOGO</span>
             <ArrowDown className="w-3.5 h-3.5" />

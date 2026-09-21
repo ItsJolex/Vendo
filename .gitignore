@@ -20,7 +20,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor & OS files
+# Style backup (local only)
+.style-backup-*
+
+# IDE / Editor & OS files
 .DS_Store
 Thumbs.db
 .vscode/

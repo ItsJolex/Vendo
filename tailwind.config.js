@@ -20,12 +20,19 @@ export default {
           ice: '#F4F7F5',
           card: '#FFFFFF',
         },
+        coral: {
+          DEFAULT: '#FF4F1F',
+          hover: '#E03E12',
+          glow: '#FFF0ED',
+        },
       },
       boxShadow: {
         'neo-pine': '4px 4px 0px 0px #00381F',
         'neo-pine-lg': '6px 6px 0px 0px #00381F',
         'neo-silver': '4px 4px 0px 0px #94A3B8',
         'neo-emerald': '4px 4px 0px 0px #0B5844',
+        'neo-coral': '4px 4px 0px 0px #E03E12',
+        'neo-coral-lg': '6px 6px 0px 0px #E03E12',
       },
       fontFamily: {
         display: ['Barlow Condensed', 'Montserrat', 'sans-serif'],
