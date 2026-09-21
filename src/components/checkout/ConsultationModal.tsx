@@ -89,7 +89,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
             <button
               type="submit"
-              className="btn-neo-coral w-full h-11 mt-2 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2"
+              className="btn-neo-terracotta w-full h-11 mt-2 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2"
             >
               <Send className="w-3.5 h-3.5" />
               <span>CONECTAR POR WHATSAPP AHORA</span>

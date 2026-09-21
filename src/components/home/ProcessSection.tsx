@@ -49,7 +49,7 @@ export const ProcessSection: React.FC = () => {
           {steps.map((s) => (
             <div key={s.num} className="p-6 text-left flex flex-col justify-between">
               <div>
-                <span className="text-2xl font-black font-mono text-coral block mb-3">
+                <span className="text-2xl font-black font-mono text-terracotta block mb-3">
                   [{s.num}]
                 </span>
                 <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-pine mb-2">

@@ -34,7 +34,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
                 onClick={() => onSelectCategory(cat.id)}
                 className={`flex-shrink-0 px-4 py-2 text-xs font-black uppercase tracking-wider transition-all border-2 border-emerald-pine ${
                   isActive
-                    ? 'bg-coral text-white shadow-neo-pine'
+                    ? 'bg-terracotta text-white shadow-neo-pine'
                     : 'bg-white text-emerald-pine hover:bg-canvas-ice'
                 }`}
               >
